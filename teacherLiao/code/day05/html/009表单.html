@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表单</title>
+	</head>
+	<body>
+		<h1>注册</h1>
+		<!-- form 表示这是一个表单 -->
+		<!-- action： 将数据提交到哪里 -->
+		<!-- method: 请求方式 -->
+		<!-- 
+		get: 将请求数据  直接显示在地址栏
+		post:将请求数据  封装在请求体  Form data当中
+		 
+		 -->
+		
+		<!-- input 表单项 -->
+		<!-- type
+					submit:提交按钮；可以将数据提交到指定的地址
+					text: 文本输入框,输入的内容可见， 可以传输数据，但是必须有name
+					password: 密码框，输入的内容， 可以传输数据，但是必须有name
+		 
+		 -->
+		<form action="http://192.168.4.101/" target="_self" method="get">
+			<input type="hidden" name="hiddenName"  value="hiddenValue" />
+			<!--  输入什么就传输什么 -->
+			<font>用户名：</font><input type="text" name="username" value="zhangsan" disabled="disabled"/> <br />
+			<font>用户名1：</font><input type="text" name="username1" value="lisi" readonly="readonly"/> <br />
+			<label for="pwd">密码：</label><input type="password" name="userpwd" id="pwd" maxlength="11" /> <br />
+			
+			<font>爱好：</font>
+			<!-- 复选框  没有输入数据的机会， 自己手动给value属性 -->
+			<input type="checkbox" value="smoking" name="hobby">抽烟
+			<input type="checkbox" value="driking" name="hobby">喝酒
+			<input type="checkbox" value="hothair" name="hobby">烫头
+			<input type="checkbox" value="coding" name="hobby" checked="checked">敲代码
+			<br />
+			
+			<font>性别：</font>
+			<!-- 单选按钮 必须保持同一组中 name属性值要相同-->
+			<input type="radio" name="gender" value="female"/> 女
+			<input type="radio" name="gender" value="male" checked="checked"/> 男
+			<input type="radio" name="gender" value="unknow"/> 未知
+			<br />
+			<input type="file" name="pic" /> <br />
+			<input type="image" src="../image/yyq.jpg"/>
+			<input type="reset" />
+			<input type="submit" value="注册" />
+			<input type="button" value="按钮" />
+			<button type="submit" >button按钮</button>
+		</form>
+	</body>
+</html>

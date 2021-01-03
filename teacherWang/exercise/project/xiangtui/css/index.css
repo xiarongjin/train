@@ -1,0 +1,1048 @@
+    /* 海报 */
+    
+    .banner {
+        height: 680px;
+        background: url(../images/bannerBg.jpg) no-repeat center;
+        background-size: 100% 100%;
+    }
+    
+    .banner-content {
+        position: relative;
+        height: 600px;
+        width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .banner .banner-content .round-ball {
+        width: 190px;
+        height: 191px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -80px;
+        transform: translate(-50%);
+        background: url(../images/roundBall.png) no-repeat;
+    }
+    
+    .banner .banner-content .mobile-internet {
+        width: 296px;
+        height: 58px;
+        background: url(../images/mobileInternet.png) no-repeat;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -120px;
+        transform: translate(-50%);
+        animation: getup 2s ease forwards;
+    }
+    
+    .banner .banner-content .marketingmode {
+        width: 178px;
+        height: 36px;
+        background: url(../images/marketingMode.png) no-repeat;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        /* margin-top: -120px; */
+        transform: translate(-50%);
+        animation: getup2 1s ease forwards;
+    }
+    
+    .banner .banner-content .line-round {
+        width: 720px;
+        height: 2px;
+        /* background-color: #fff; */
+        position: absolute;
+        top: 50%;
+        margin-top: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .banner .banner-content .line-round::before,
+    .banner .banner-content .line-round::after {
+        content: "";
+        display: block;
+        background-color: #fff;
+        height: 2px;
+        width: 0;
+        position: absolute;
+        animation: getline 2s forwards;
+    }
+    
+    .banner .banner-content .line-round::before {
+        left: 50%;
+    }
+    
+    .banner .banner-content .line-round::after {
+        right: 50%;
+    }
+    
+    .banner .banner-content .showbanner {
+        width: 720px;
+        height: 29px;
+        /* background-color: #fff; */
+        position: absolute;
+        top: calc(50% - 25px);
+        /* margin-top: 12px; */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .banner .banner-content .showbanner::before {
+        content: "";
+        right: 50%;
+        height: 29px;
+        width: 350px;
+        position: absolute;
+        opacity: 0;
+        /* background-color: #fff; */
+        background: url(../images/shareBrand.png) no-repeat;
+        animation: showdot 1s ease-in-out 0.5s forwards;
+    }
+    
+    .banner .banner-content .showbanner::after {
+        content: "";
+        right: 0px;
+        height: 29px;
+        width: 250px;
+        position: absolute;
+        opacity: 0;
+        /* background-color: #fff; */
+        background: url(../images/sideCloudSales.png) no-repeat;
+        animation: showdot 1s ease-in-out 0.5s forwards;
+    }
+    
+    .banner .banner-content .dot {
+        display: block;
+        height: 8px;
+        width: 8px;
+        opacity: 0;
+        border-radius: 50%;
+        background: white;
+        position: absolute;
+    }
+    
+    .banner .banner-content .linedot {
+        top: 50%;
+        margin-top: 11px;
+        left: 236px;
+        animation: showdot 0.3s 1.7s forwards;
+    }
+    
+    .banner .banner-content .linedot2 {
+        top: 50%;
+        margin-top: 11px;
+        right: 236px;
+        animation: showdot 0.3s 1.7s forwards;
+    }
+    
+    .banner .banner-content .peoplelist {
+        width: 62px;
+        height: 62px;
+        position: absolute;
+        background: #000;
+        left: 50%;
+        top: 50%;
+    }
+    
+    .banner .banner-content .list1 {
+        background: url("../images/people1.png");
+        margin-left: -595px;
+        margin-top: 130px;
+        animation: showdot 1s linear 1s;
+        animation-fill-mode: both;
+    }
+    
+    .banner .banner-content .list2 {
+        background: url("../images/people2.png");
+        margin-left: 30px;
+        margin-top: 275px;
+        animation: showdot 1s linear .5s;
+        animation-fill-mode: both;
+    }
+    
+    .banner .banner-content .list3 {
+        background: url("../images/people3.png");
+        margin-left: 205px;
+        margin-top: 130px;
+        animation: showdot 1s linear 1s;
+        animation-fill-mode: both;
+    }
+    
+    .banner .banner-content .peopleline {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+    
+    .banner .banner-content .line1 {
+        width: 2px;
+        height: 35px;
+        margin-left: -565px;
+        margin-top: 192px;
+        /* background-color: red; */
+    }
+    
+    .banner .banner-content .line1::after {
+        content: "";
+        width: 2px;
+        height: 35px;
+        background-color: #ffffff;
+        position: absolute;
+        bottom: 0px;
+        opacity: 0;
+        animation: getlineheight 0.5s linear 0.5s forwards;
+    }
+    
+    .banner .banner-content .line2 {
+        width: 200px;
+        height: 2px;
+        margin-left: -565px;
+        margin-top: 227px;
+        /* background-color: red; */
+    }
+    
+    .banner .banner-content .line2::after {
+        content: "";
+        width: 200px;
+        height: 2px;
+        background-color: #ffffff;
+        position: absolute;
+        right: 0px;
+        animation: getlinewidth 0.5s linear 0s;
+    }
+    
+    .banner .banner-content .line3 {
+        width: 176px;
+        height: 2px;
+        top: 50%;
+        background-color: #ffffff;
+        margin-left: -145px;
+        margin-top: 308px;
+        opacity: 0;
+        animation: getlinewidth1 .5s linear 0s forwards;
+        /* background-color: red; */
+    }
+    
+    .banner .banner-content .line5 {
+        width: 150px;
+        height: 2px;
+        margin-left: 62px;
+        margin-top: 227px;
+        top: 50%;
+        background-color: #ffffff;
+        opacity: 0;
+        animation: getlinewidth1 .5s linear 0s forwards;
+        /* background-color: red; */
+    }
+    
+    .banner .banner-content .line6 {
+        width: 2px;
+        height: 35px;
+        margin-left: 236px;
+        margin-top: 192px;
+        top: 50%;
+        /* left: 50%; */
+        /* background: red; */
+    }
+    
+    .banner .banner-content .line6::after {
+        content: "";
+        width: 2px;
+        height: 35px;
+        background-color: #ffffff;
+        position: absolute;
+        bottom: 0px;
+        opacity: 0;
+        animation: getlineheight 0.5s linear 0.5s forwards;
+    }
+    
+    .banner .banner-content .people1 {
+        top: 50%;
+        margin-top: 224px;
+        left: 234px;
+        animation: showdot 0.5s linear forwards;
+    }
+    
+    .banner .banner-content .people2 {
+        top: 50%;
+        left: 50%;
+        margin-left: 54px;
+        margin-top: 225px;
+        animation: showdot 0.5s linear forwards;
+    }
+    
+    .banner .banner-content .people3 {
+        top: 50%;
+        left: 50%;
+        margin-left: -152px;
+        margin-top: 305px;
+        animation: showdot 0.5s linear forwards;
+    }
+    
+    .banner .banner-content .content {
+        width: 270px;
+        height: 30px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+    
+    .banner .banner-content .content1 {
+        background: url(../images/xstdkszj.png) no-repeat;
+        margin-left: -520px;
+        margin-top: 145px;
+        opacity: 0;
+        animation: showdot 0.5s linear 1.2s;
+        animation-fill-mode: both
+    }
+    
+    .banner .banner-content .content2 {
+        background: url(../images/hdtgsssl.png) no-repeat;
+        margin-left: 110px;
+        margin-top: 290px;
+        opacity: 0;
+        animation: showdot 0.5s linear 1.2s;
+        animation-fill-mode: both
+    }
+    
+    .banner .banner-content .content3 {
+        background: url(../images/khxsqshq.png) no-repeat;
+        margin-left: 280px;
+        margin-top: 145px;
+        opacity: 0;
+        animation: showdot 0.5s linear 1.2s;
+        animation-fill-mode: both
+    }
+    
+    .goodatMain {
+        background: url(../images/goodatBg.jpg) no-repeat bottom center;
+        width: 100%;
+        height: 803px;
+        background-size: 100% 100%;
+        overflow: hidden;
+        min-width: 1200px;
+    }
+    
+    .goodatbox {
+        width: 1200px;
+        height: 803px;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    .goodatbox .goodattitle {
+        width: 1058px;
+        height: 197px;
+        background: url(../images/weGoodat.png) no-repeat;
+        margin-left: 20px;
+        position: relative;
+    }
+    
+    .btnCom {
+        width: 110px;
+        height: 36px;
+        text-align: center;
+        line-height: 35px;
+        border-radius: 18px;
+        color: #f14a65;
+        background-color: #ffffff;
+        position: absolute;
+        font-size: 20px;
+    }
+    
+    .goodatbox .goodattitle .showmorebtn {
+        left: 290px;
+        top: 110px;
+    }
+    
+    .goodatbox .advantagelist {
+        position: absolute;
+        margin-top: 78px;
+        width: 1200px;
+        height: 530px;
+        /* background: #000; */
+    }
+    
+    .goodatbox .advantagelist li {
+        width: 282px;
+        height: 480px;
+        display: block;
+        float: left;
+        /* overflow: hidden; */
+        padding-top: 40px;
+        text-align: center;
+        /* background: red; */
+    }
+    
+    .goodatbox .advantagelist li:hover img {
+        transition: all .5s ease-in-out;
+        transform: translateY(-70px);
+        /* background: red; */
+    }
+    
+    .goodatbox .advantagelist li:nth-child(1) img {
+        /* margin: 0px 177px; */
+        opacity: 0;
+        transition: all;
+        animation: getleft 1s forwards;
+    }
+    
+    .goodatbox .advantagelist li:nth-child(2) img {
+        /* margin: 0px 177px; */
+        transition: all;
+        animation: getmid 1s forwards;
+    }
+    
+    .goodatbox .advantagelist li:nth-child(2) {
+        margin: 0px 177px;
+    }
+    
+    .goodatbox .advantagelist li:nth-child(3) img {
+        /* margin: 0px 177px; */
+        transition: all;
+        animation: getright 1s forwards;
+    }
+    
+    .goodatbox .advantagelist li .contentBox {
+        background-color: #42403f;
+        color: #838181;
+        text-align: center;
+        vertical-align: center;
+        width: 282px;
+        height: 0px;
+        line-height: 35px;
+        overflow: hidden;
+        position: absolute;
+        bottom: 0px;
+        font-size: 18px;
+        /* box-sizing: border-box; */
+        /* opacity: 0; */
+        /* transition: all 0.3s ease-in-out; */
+        /* margin-top: 200px; */
+        transition-property: height;
+        transition-duration: .3s;
+    }
+    
+    .goodatbox .advantagelist li .contentBox div {
+        padding: 20px 15px;
+    }
+    
+    .goodatbox .advantagelist li:hover .contentBox {
+        opacity: 1;
+        height: 200px;
+    }
+    
+    .advantageMain {
+        width: 100%;
+        height: 1077px;
+        overflow: hidden;
+        min-width: 1200px;
+    }
+    
+    .advantagebox {
+        width: 1200px;
+        margin: 0 auto;
+        height: 1077px;
+        /* background-color: wheat; */
+        position: relative;
+    }
+    
+    .advantagetitle {
+        width: 638px;
+        height: 129px;
+        background: url(../images/advantage.png) no-repeat;
+        position: absolute;
+        right: 98px;
+        top: 0px;
+        z-index: 99;
+    }
+    
+    .buildbox {
+        display: block;
+        width: 848px;
+        height: 1010px;
+        /* background: url(../images/building.jpg) no-repeat; */
+        position: absolute;
+        right: 500px;
+        /* bottom: -500px; */
+        opacity: 0;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+    
+    .buildbox {
+        /* transition: animation .5s; */
+        animation: getbuild 1s forwards
+    }
+    
+    .sloganshow {
+        width: 409px;
+        height: 413px;
+        background: url(../images/shadow.png) no-repeat;
+        position: absolute;
+        right: 25px;
+        top: 275px;
+    }
+    
+    .sloganList {
+        width: 197px;
+        height: 197px;
+        position: absolute;
+        transition: all 0.2s linear;
+    }
+    
+    .sloganList:hover {
+        transform: scale(1.1);
+    }
+    
+    .sloganList1 {
+        background: url(../images/qualityPlatform.png) no-repeat;
+        right: 120px;
+        top: 205px;
+    }
+    
+    .sloganList2 {
+        background: url(../images/ultimatePursuit.png) no-repeat;
+        right: 240px;
+        top: 324px;
+    }
+    
+    .sloganList3 {
+        background: url(../images/valuePropagation.png) no-repeat;
+        right: 1px;
+        top: 324px;
+    }
+    
+    .sloganList4 {
+        background: url(../images/executePlace.png) no-repeat;
+        right: 124px;
+        top: 442px;
+    }
+    
+    .boradBox {
+        width: 639px;
+        height: 232px;
+        background: url(../images/textBorad.png) no-repeat right bottom;
+        position: absolute;
+        bottom: 15px;
+        right: 0px;
+    }
+    
+    .textBoradBox {
+        width: 417px;
+        height: 112px;
+        position: absolute;
+        left: 207px;
+        bottom: 120px;
+        overflow: hidden;
+    }
+    
+    .textBorad {
+        width: 377px;
+        height: 72px;
+        padding: 20px;
+        background-color: #f3f3f3;
+        position: absolute;
+        bottom: -120px;
+        font-size: 18px;
+        line-height: 35px;
+        color: #666666;
+        /* transform: translateY(100%); */
+        margin-top: 72px;
+        transition: all 0.6s ease;
+    }
+    
+    .sloganList1:hover~.boradBox .textBoradBox .textBorad:nth-child(1) {
+        bottom: 0px;
+    }
+    
+    .sloganList2:hover~.boradBox .textBoradBox .textBorad:nth-child(2) {
+        bottom: 0px;
+    }
+    
+    .sloganList3:hover~.boradBox .textBoradBox .textBorad:nth-child(3) {
+        bottom: 0px;
+    }
+    
+    .sloganList4:hover~.boradBox .textBoradBox .textBorad:nth-child(4) {
+        bottom: 0px;
+    }
+    
+    .somethingSay {
+        width: 100%;
+        height: 880px;
+        background: url(../images/somethingBg.jpg) no-repeat center center #ec6b80;
+        /* background-size: 100% 100%; */
+        overflow: hidden;
+        min-width: 1200px;
+    }
+    
+    .someCaseShow {
+        width: 1200px;
+        height: 880px;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    .somethingTitle {
+        width: 385px;
+        height: 64px;
+        background: url(../images/somethingTitle.png) no-repeat;
+        position: absolute;
+        top: 52px;
+        left: 35px;
+    }
+    
+    .roundBtnCom {
+        width: 110px;
+        height: 36px;
+        text-align: center;
+        line-height: 35px;
+        border-radius: 18px;
+        color: #f14a65;
+        background-color: #ffffff;
+        position: absolute;
+        font-size: 20px;
+    }
+    
+    .moreCaseBtn {
+        top: 86px;
+        right: 116px;
+    }
+    
+    .xtuiPig {
+        width: 159px;
+        height: 159px;
+        background: url(https://www.aobortin.com/xiangtui/webpage/css/../images/pig.jpg) no-repeat;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: 40px;
+        margin-left: -183px;
+    }
+    
+    .moveChangeScale {
+        transition: all 0.2s linear;
+        cursor: pointer;
+    }
+    
+    .moveChangeScale:hover {
+        transform: scale(1.05);
+    }
+    
+    .chinaPing {
+        animation-duration: 0.8s !important;
+    }
+    
+    .chinaPing {
+        /* opacity: 0; */
+        width: 328px;
+        height: 328px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -300px;
+        margin-left: -183px;
+    }
+    
+    .getBottom {
+        animation: getmid2 1s ease forwards;
+        opacity: 1;
+    }
+    
+    .getLeft {
+        animation: getleft2 1s ease forwards;
+        opacity: 1;
+    }
+    
+    .getRight {
+        animation: getright2 1s ease forwards;
+        opacity: 1;
+    }
+    
+    .getUp {
+        animation: getUp2 1s ease forwards;
+        opacity: 1;
+    }
+    
+    .nvwang {
+        opacity: 0;
+        width: 159px;
+        height: 159px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -300px;
+        margin-left: -522px;
+    }
+    
+    .tctravel {
+        opacity: 0;
+        width: 328px;
+        height: 328px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -129px;
+        margin-left: -522px;
+    }
+    
+    .people1 {
+        opacity: 0;
+        width: 159px;
+        height: 159px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -300px;
+        margin-left: -353px;
+    }
+    
+    .alibaba {
+        opacity: 0;
+        width: 328px;
+        height: 159px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -300px;
+        margin-left: 156px;
+    }
+    
+    .rzcenter {
+        animation-duration: 0.5s !important;
+    }
+    
+    .rzcenter {
+        opacity: 0;
+        width: 159px;
+        height: 159px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -129px;
+        margin-left: 156px;
+    }
+    
+    .beibei {
+        opacity: 0;
+        width: 328px;
+        height: 159px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: 40px;
+        margin-left: -12px;
+    }
+    
+    .EF {
+        opacity: 0;
+        width: 159px;
+        height: 328px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -129px;
+        margin-left: 326px;
+    }
+    
+    .leftBottomMask {
+        width: 0px;
+        height: 0px;
+        border-left: 350px solid #f4758a;
+        border-bottom: 11px solid #f4758a;
+        border-top: 200px solid transparent;
+        border-right: 19px solid transparent;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        z-index: 99;
+    }
+    
+    .seyTextMain {
+        position: absolute;
+        bottom: 72px;
+        left: 0px;
+        z-index: 10;
+        height: 114px;
+        width: 1170px;
+    }
+    
+    .theySayTextBox {
+        width: 0px;
+        height: 100px;
+        text-align: right;
+        overflow: hidden;
+        background-color: #3d3d3d;
+        font-size: 18px;
+        color: #ffffff;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        transition: all 0.5s ease;
+    }
+    
+    .theySayTextBox .first {
+        padding-top: 10px;
+    }
+    
+    .theySayTextBox .second {
+        text-align: right;
+        padding-right: 650px;
+    }
+    
+    .moveChangeScale:hover~.seyTextMain .theySayTextBox {
+        width: 1200px;
+    }
+    
+    .growtogether {
+        width: 100%;
+        height: 620px;
+        overflow: hidden;
+        min-width: 1200px;
+    }
+    
+    .growtogether .togetherbox {
+        height: 620px;
+        width: 1200px;
+        margin: 0 auto;
+        /* background: #000; */
+        position: relative;
+        /* display: flex; */
+    }
+    
+    .growtogether .togetherbox .showlogbox {
+        padding-top: 40px;
+        height: 600px;
+        width: 1200px;
+        /* background: #000; */
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .growtogether .togetherbox .togetherlogo {
+        height: 185px;
+        width: 735px;
+        background: url(../images/together.png);
+        position: absolute;
+        left: -360px;
+    }
+    
+    .growtogether .togetherbox .showlogbox .arrowleft,
+    .growtogether .togetherbox .showlogbox .arrowright {
+        flex-grow: 1;
+        background: cornsilk;
+        font-size: 70px;
+        opacity: 0.1;
+        height: 140px;
+        line-height: 140px;
+        text-align: center;
+    }
+    
+    .growtogether .togetherbox .showlogbox .arrowleft:hover,
+    .growtogether .togetherbox .showlogbox .arrowright:hover {
+        opacity: 0.3;
+    }
+    
+    .growtogether .togetherbox .showlogbox .arrowleft {
+        order: 0;
+    }
+    
+    .growtogether .togetherbox .showlogbox .arrowright {
+        order: 2;
+    }
+    
+    .growtogether .togetherbox .showlogbox .logowindow {
+        /* box-sizing: border-box; */
+        /* display: flex; */
+        order: 1;
+        position: relative;
+        flex-grow: 0;
+        height: 334px;
+        width: 1004px;
+        overflow: hidden;
+        /* padding: 168px 0px 0px; */
+        margin: 0 1px;
+    }
+    
+    .growtogether .togetherbox .showlogbox .logowindow .logolist {
+        width: 1624px;
+        height: 336px;
+        display: flex;
+        /* align-content: stretch; */
+        /* justify-content: stretch; */
+        flex-wrap: wrap;
+        /* background: #000; */
+        /* background-color: cornsilk; */
+        margin-left: -410px;
+        /* margin-top: -5px; */
+        transition: transform .5s;
+    }
+    
+    .growtogether .togetherbox .showlogbox .logowindow .logolist .logopic {
+        border-bottom: 1px solid #d4d4d4;
+        border-left: 1px solid #d4d4d4;
+        display: block;
+        width: 202px;
+        height: 112px;
+    }
+    
+    .growtogether .togetherbox .showlogbox .logowindow .logolist .logopic:nth-child(n) img {
+        opacity: 0;
+        animation: showdot .5s ease-in-out .5s forwards;
+    }
+    
+    .growtogether .togetherbox .showlogbox .logowindow .logolist .logopic:nth-child(2n) img {
+        opacity: 0;
+        animation: showdot 2s ease-in-out 1.5s forwards;
+    }
+    
+    .growtogether .togetherbox .showlogbox .logowindow .logolist .logopic:nth-child(3n) img {
+        opacity: 0;
+        animation: showdot 2s ease-in-out 1s forwards;
+    }
+    
+    .growtogether .togetherbox .showlogbox .logowindow .logolist .logopic:nth-child(5n) img {
+        opacity: 0;
+        animation: showdot 1.5s ease-in-out 1s forwards;
+    }
+    
+    .growtogether .togetherbox .showlogbox .arrowright:hover~.logowindow .logolist {
+        transform: translate(202px);
+        /* color: red; */
+    }
+    
+    .growtogether .togetherbox .showlogbox .arrowleft:hover~.logowindow .logolist {
+        transform: translate(-202px);
+    }
+    
+    .register {
+        width: 100%;
+        height: 281px;
+        background: url(../images/registerBg.jpg) no-repeat;
+        background-size: 100% 100%;
+    }
+    
+    .register .registerbox {
+        width: 1200px;
+        height: 281px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    
+    .register .registerbox .countnum {
+        width: 1200px;
+        /* background: #000; */
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        height: 100px;
+        font-size: 24px;
+        color: white;
+    }
+    
+    .register .registerbox .countnum span {
+        font-size: 72px;
+        color: #f14a65;
+        font-family: "Arial";
+        font-weight: 800;
+    }
+    
+    .register .registerbox .inputtel {
+        display: flex;
+        justify-content: center;
+        width: 1200px;
+        height: 50px;
+        /* background: #000; */
+    }
+    
+    .register .registerbox .inputtel input {
+        font-size: 20px;
+        height: 50px;
+        outline-style: none;
+        padding-left: 10px;
+        width: 300px;
+        color: #999;
+        border: none;
+        margin-right: 25px;
+        background-color: #e6e6e6;
+    }
+    
+    .register .registerbox .inputtel button {
+        width: 170px;
+        height: 50px;
+        border: none;
+        color: #ffffff;
+        background-color: #f14a65;
+        font-family: "微软雅黑";
+        font-size: 20px;
+    }
+    
+    footer {
+        width: 100%;
+        height: 310px;
+        min-width: 1200px;
+        background-color: #fff;
+    }
+    
+    footer .footerbox {
+        height: 310px;
+        width: 850px;
+        margin: 0 auto;
+        padding: 40px 0;
+        /* background: wheat; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    footer .footerbox .infobox {
+        width: calc(170px * 3);
+        height: 226px;
+        display: flex;
+        justify-content: space-between;
+        /* background: #000; */
+    }
+    
+    footer .footerbox .infobox div {
+        height: 180px;
+        width: 120px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        /* justify-content: space-between; */
+        font-size: 24px;
+        color: #333;
+        /* background-color: wheat; */
+    }
+    
+    footer .footerbox .infobox div dt {
+        padding-bottom: 10px;
+    }
+    
+    footer .footerbox .infobox div dl {
+        padding-top: 10px;
+        font-size: 16px;
+        color: #666;
+    }
+    
+    footer .footerbox .erweima {
+        width: 194px;
+        height: 226px;
+        /* background: #000; */
+    }
+    
+    footer .footerbox .erweima p {
+        background: url(../images/weixin.png) no-repeat left center;
+        font-size: 18px;
+        margin-top: 10px;
+        padding-left: 30px;
+        color: #666;
+    }

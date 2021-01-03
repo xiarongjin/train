@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax请求</title>
+</head>
+
+<body>
+    <!-- <button id="getajax">获取数据</button> -->
+    <input type="text" name="" id="list">
+    <!-- <ul id="show"></ul> -->
+
+    <!-- 账户：<input type="text" name="username" id="username"><br/>
+    密码：<input type="password" name="password" id="password"><br/>
+    
+    <input type="button" name="submit" id="" value="提交"> -->
+    <script>
+      
+       var submit= document.getElementsByName("submit")[0];
+        var $ = {
+            ajax: function (obj) {
+                var xhr = new XMLHttpRequest();
+                if(obj.type=='post'){
+                xhr.open(obj.type, obj.url, true);
+                xhr.setRequestHeader('content-type','application/x-www-form-urlencoded;charset=utf-8');
+                xhr.send(obj.data);
+                }else{
+                    xhr.open(obj.type, obj.url+"?"+obj.data, true);
+                    xhr.send(); 
+                }
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+                        if (xhr.status == 200) {
+                            obj.success(xhr.responseText);
+                        }
+                    }
+                }
+            }
+        }
+        // submit.onclick=function(){
+        //     var username= document.getElementsByName("username")[0];
+        //     var password= document.getElementsByName("password")[0];
+        //     console.log(password.value)
+        //     $.ajax({
+        //         type:"post",
+        //         url:"http://192.168.18.139:8888/test/login",
+        //         data:"username="+username.value+"&password="+password.value,
+        //         success:function(res){
+        //             console.log(res)
+        //         }
+        //     })
+        // }
+        var list = document.getElementById("list")
+        list.oninput = function () {
+            if (list.value =="中") {
+                $.ajax({
+                   type: "get",
+                   url: "http://192.168.18.182:5500/test.json",
+                   success:function(data){
+                       console.log(data)
+                   }
+                })
+            }
+        }
+    </script>
+
+
+</body>
+<script>
+    // //请求步骤
+    // //1.创建xhr对象 
+    // var xhr=new XMLHttpRequest();
+    // //2.打开链接
+    // xhr.open("get","http://127.0.0.1:5500/test.json?name=zhangsan&psw=12345",true);
+
+    // // xhr.open("post","http://192.168.18.139:8888/test/hello",true);
+    // //设置post请求数据格式
+    // // xhr.setRequestHeader('content-type','application/x-www-form-urlencoded;charset=utf-8')
+    // //3.发送请求
+    // // xhr.send("name=zhangsan&psw=12345");//post数据
+    // xhr.send(); 
+
+    // xhr.onreadystatechange=function(fn){
+    //     //4.接受响应
+    //     if(xhr.readyState==4){
+    //         if(xhr.status==200){
+    //           console.log(xhr.responseText)
+    //         }
+    //     }
+    // }
+    //封装ajax
+
+    // function myAjax(obj) {
+    //     var xhr =new XMLHttpRequest();//1.创建xhr对象
+    //     if(obj.type=='get'&&obj.data!=''){
+    //     xhr.open(obj.type,obj.url+'?'+obj.data,true);//2.建立连接
+    //     }else{
+    //         xhr.open(obj.type,obj.url,true)
+    //     }
+    //     if(obj.type=='post'){//3.发送post请求 
+    //         xhr.setRequestHeader('content-type','application/x-www-form-urlencoded;charset=utf-8')
+    //         xhr.send(obj.data);
+    //     }else{
+    //             xhr.send();//get请求
+    //         }
+    //     xhr.onreadystatechange=function(){//4.接受响应
+    //         if(xhr.readyState==4){
+    //                 if(xhr.status==200){
+    //                     obj.success(xhr.responseText);
+    //                 }else if(xhr.status==404){
+    //                     obj.error('请求的页面不存在')
+    //                 }else if(xhr.status==405){
+    //                     obj.error('请求方法不被允许')
+    //                 }
+    //         }
+    //     }
+    // }
+
+    // myAjax({
+    //     type:'post',
+    //     url:'http://127.0.0.1:5500/test1.json',
+    //     data:'usename=lisi&age=21',
+    //     success:function(data){    
+    //         var res = JSON.parse(data)
+    //         console.log(res);
+    //     },
+    //     error:function(errorData){
+    //         alert(errorData)
+    //     }
+    // })
+
+    // jsonp解决跨域
+    // function cb(data) {
+    //     alert(data)
+    //   }
+    // var script=document.createElement("script");
+    // script.src="http://192.168.18.139:8888/test/helloJsonp?cb=cb";
+    // window.onload=function(){
+    //     document.body.appendChild(script);
+    // }
+</script>
+
+</html>

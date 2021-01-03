@@ -1,0 +1,709 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+img{
+    opacity: 0;
+    transition: all 1s;
+}
+ul {
+    list-style: none;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+a {
+    text-decoration: none;
+}
+
+.toTop{
+    height: 50px;
+    width: 50px;
+    background: url(img/scrollTop.png);
+    position: fixed;
+    bottom: 50px;
+    right: 100px;
+    opacity: 0;
+    /* display: none; */
+    transition: all 1s ease;
+}
+/* 头部 */
+
+.header {
+    width: 1000px;
+    height: 78px;
+    /* background: red; */
+    margin: 0 auto;
+}
+
+.header-left {
+    height: 78px;
+    width: 500px;
+    float: left;
+    position: relative;
+}
+
+.header-left img {
+    margin-top: 20px;
+}
+
+.header-left input {
+    width: 249px;
+    height: 34px;
+    position: absolute;
+    top: 19px;
+    left: 193px;
+    padding: 5px 0 5px 14px;
+    box-sizing: border-box;
+    outline: none;
+    border-width: 1px 0 1px 1px;
+    border-style: solid;
+    border-color: #ccc;
+}
+
+.header-left .search-btn {
+    position: absolute;
+    top: 19px;
+    left: 442px;
+    display: block;
+    width: 34px;
+    height: 34px;
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+    border-color: #ccc;
+    box-sizing: border-box;
+}
+
+.header-left .search-btn i {
+    display: block;
+    margin: 9px auto 0;
+    width: 16px;
+    height: 16px;
+    background: url(./img/search.png);
+    background-position: -40px -56px;
+}
+
+.header-left .search-btn i:hover {
+    background-position: -40px -86px;
+}
+
+.header-right {
+    float: right;
+    height: 78px;
+    width: 330px;
+    /* margin-top: 20px; */
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.header-right ul {
+    height: 21px;
+    width: 250px;
+    margin-top: 5px;
+    float: left;
+    border-right: 1px solid #e6e6e6;
+}
+
+.header-right li {
+    float: left;
+    padding: 0px 15px;
+}
+
+.header-right li>a:hover {
+    color: #009af3;
+}
+
+.header-right a {
+    color: #777;
+    font-size: 13px;
+    outline-style: none;
+    text-decoration: none;
+}
+
+.header-right .login-btn {
+    float: right;
+    display: block;
+    width: 48px;
+    height: 28px;
+    line-height: 28px;
+    color: #fff;
+    border: 1px solid #169af3;
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #169af3;
+}
+
+.header-right .login-btn:hover {
+    background: #158fee;
+    border: 1px solid #158fee;
+}
+
+
+/* 菜单 */
+
+.menu {
+    height: 55px;
+    background-color: #2c323b;
+    z-index: 9999;
+    position: relative;
+}
+
+.menu .menu-con {
+    height: 55px;
+    width: 1000px;
+    margin: 0 auto;
+    /* background: red; */
+}
+
+.menu .menu-left {
+    float: left;
+}
+
+.menu .menu-left>li {
+    float: left;
+}
+
+.menu .menu-left li a {
+    outline: none;
+    text-decoration: none;
+    height: 55px;
+    line-height: 55px;
+    color: #ddd;
+    font-size: 16px;
+    display: block;
+    padding: 0 30px;
+}
+
+.menu .menu-left>li>a:hover {
+    background: #0c8ed9;
+    color: #fff;
+}
+
+.menu .menu-left>li>a.active {
+    background: #0c8ed9;
+}
+
+.menu .menu-left>li:last-child>a {
+    background: url("./img/arrowMored.png") no-repeat 72px 24px;
+}
+
+.menu .menu-left>li:last-child:hover>a {
+    background: url("./img/arrowMoreu.png") no-repeat 72px 24px;
+}
+
+.menu .menu-left>li:last-child:hover {
+    background-color: #0c8ed9;
+}
+
+.menu .menu-left>li:last-child:hover .sub-menu {
+    display: block;
+    border: none;
+    z-index: 10;
+}
+
+.menu .menu-left .sub-menu {
+    display: none;
+    position: absolute;
+    border: none;
+    text-align: center;
+    z-index: 10;
+}
+
+.menu .menu-left .sub-menu>li {
+    background: #252b34;
+    padding: 0;
+}
+
+.menu .menu-left .sub-menu>li:hover {
+    background: #2d343d;
+    color: #fff;
+}
+
+.menu .menu-left .sub-menu li a:hover {
+    color: #fff;
+}
+
+.menu .menu-right {
+    float: right;
+}
+
+.menu .menu-right>li {
+    float: left;
+    margin: 16px 0 0 0;
+    padding: 0 0 0 20px;
+}
+
+.menu .menu-right li>a {
+    text-decoration: none;
+    outline: none;
+    font-size: 13px;
+    padding: 0 0 0 20px;
+    color: #bbb;
+    background: url(./img/sprite.png);
+}
+
+.menu .menu-right li>a:hover {
+    color: #0c8ed9;
+}
+
+.menu .menu-right li:nth-child(1)>a {
+    background-position: 0 -119px;
+}
+
+.menu .menu-right li:nth-child(1)>a:hover {
+    background-position: 0 -101px;
+}
+
+.menu .menu-right li:nth-child(2)>a {
+    background-position: 0 -281px;
+}
+
+.menu .menu-right li:nth-child(2)>a:hover {
+    background-position: 0 -245px;
+}
+
+.menu .menu-right li:nth-child(3)>a {
+    background-position: 0 -191px;
+}
+
+.menu .menu-right li:nth-child(3)>a:hover {
+    background-position: 0 -173px;
+}
+
+.menu .menu-right li:nth-child(4)>a {
+    background: url(./img/代理商.png) no-repeat left center;
+}
+
+.menu .menu-right li:nth-child(4)>a:hover {
+    background: url(./img/代理商2.png) no-repeat left center;
+}
+
+.menu .menu-right li:nth-child(5)>a {
+    background-position: 0 -1308px;
+}
+
+.menu .menu-right li:nth-child(5)>a:hover {
+    background-position: 0 -1289px;
+}
+
+.menu .menu-right li:nth-child(6)>a {
+    background: url(./img/开放平台.png) no-repeat left center;
+}
+
+.menu .menu-right li:nth-child(6)>a:hover {
+    background: url(./img/开放平台2.png) no-repeat left center;
+}
+
+
+/* 轮播图 */
+
+.carousel {
+    height: 445px;
+    border: none;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+.carousel:hover .right-arrow {
+    display: block;
+}
+.carousel:hover .left-arrow{
+    display: block;
+}
+.carousel .carousel-bg li {
+    height: 445px;
+    /* width: 2048px; */
+    float: left;   
+   
+    /* background: url(./img/banner1.jpg) no-repeat top center; */
+}
+.carousel .carousel-bg li img{
+    height: 100%;
+    display: block;
+    width: 2048px;
+    opacity: 0;
+    position: absolute;
+    left: calc((100% - 2048px)/2);
+    transition: all 1 ease;
+    
+   
+}
+.carousel .carousel-bg li:first-child img{
+    opacity: 1;
+}
+
+.carousel .left-arrow {
+    position: absolute;
+    /* display: block; */
+    display: none;
+    width: 60px;
+    height: 120px;
+    /* background: red; */
+    background: url(./img/sprite.png) no-repeat;
+    background-position: 0 -755px;
+    top: 162px;
+}
+
+.carousel .left-arrow:hover {
+    background-position: 0 -880px;
+}
+
+.carousel .right-arrow {
+    position: absolute;
+    /* display: block; */
+    display: none;
+    width: 60px;
+    height: 120px;
+    background: url(./img/sprite.png) no-repeat;
+    background-position: 0 -1130px;
+    top: 162px;
+    right: 0px;
+}
+
+.carousel .right-arrow:hover {
+    background-position: 0 -1005px;
+}
+
+.carousel .dot {
+    /* background: red; */
+    /* height: 10px;
+    width: 10px; */
+    position: absolute;
+    bottom: 80px;
+    left: calc(50% - 91px);
+    /* transform: translateX(-50%); */
+}
+
+.carousel .dot li {
+    float: left;
+    /* height: 12px;  */
+    margin: 0 7px;
+}
+
+.carousel .dot li a {
+    display: block;
+    width: 12px;
+    height: 10px;
+    background: url(./img/sprite.png) no-repeat;
+    background-position: 0 -22px;
+}
+.carousel .dot li:first-child a{
+    background-position: 0 -37px;
+}
+
+.carousel .download {
+    position: absolute;
+    height: 60px;
+    /* background: red; */
+    width: 100%;
+    bottom: 0;
+    overflow: hidden;
+}
+.carousel .download .bg-blur{
+    width: 100%;
+    position: absolute;
+    top: -400px;
+    height: 500px;
+    left:0px;
+    z-index: 0;
+}
+
+.carousel .download .download-btn {
+    width: 745px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    /* height: 60px; */
+    /* background: red; */
+}
+
+.carousel .download .download-btn li {
+    float: left;
+   
+}
+
+.carousel .download .download-btn li a {
+    /* outline-color: none; */
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 0 50px;
+    margin-left: 90px;
+    font-size: 15px;
+    /* height: 25px; */
+    height: 60px;
+    line-height: 60px;
+    background: url(./img/pc.png) no-repeat left center;
+}
+
+.carousel .download .download-btn li a:hover {
+    /* outline-color: none; */
+    color: #ffffdf;
+    background: url(./img/pc_hover.png) no-repeat  left center;
+}
+
+.carousel .download .download-btn li:nth-child(2) a {
+    background: url(./img/mac.png) no-repeat  left center;
+    margin-left: 0px;
+}
+
+.carousel .download .download-btn li:nth-child(2) a:hover {
+    background: url(./img/mac_hover.png) no-repeat  left center;
+    margin-left: 0px;
+}
+
+.carousel .download .download-btn li:nth-child(3) a {
+    background: url(./img/andriod.png) no-repeat  left center;
+    margin-left: 0px;
+}
+
+.carousel .download .download-btn li:nth-child(3) a:hover {
+    background: url(./img/andriod_hover.png) no-repeat  left center;
+    margin-left: 0px;
+}
+
+.carousel .download .download-btn li .span-line {
+    height: 25px;
+    line-height: 25px;
+    /* margin-top: 40px; */
+    margin-left: 40px;
+    border-right: 2px solid rgba(255, 255, 255, .2);
+}
+
+.content {
+    width: 1000px;
+    margin: 0 auto;
+    height: 390px;
+    /* background: red; */
+}
+
+.content .firstContent {
+    /* background: green; */
+    width: 1000px;
+    height: 390px;
+    margin-top: 40px;
+}
+
+.content .firstContent .itemLeft {
+    overflow: hidden;
+    float: left;
+    font-size: 13px;
+    width: 660px;
+    height: 390px;
+    /* background-color: blue; */
+}
+
+.content .firstContent .itemLeft .itemTitle {
+    background: url(./img/selectlist.jpg) no-repeat 0 0;
+    height: 30px;
+    padding-bottom: 30px;
+}
+
+.content .firstContent .itemLeft .itemTitle .more {
+    color: #999;
+    margin-top: 7px;
+    font: 13px;
+}
+
+.content .firstContent .itemLeft .itemTitle .more:hover {
+    color: #009af3;
+}
+
+.content .firstContent .itemLeft .itembigContent {
+    width: 325px;
+    height: 325px;
+    position: relative;
+    margin-right: 5px;
+    display: block;
+    /* background: #000; */
+    box-sizing: border-box;
+}
+
+.content .firstContent .itemLeft .top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 152px;
+    padding-right: 8px;
+    height: 30px;
+    line-height: 30px;
+    background: url(./img/cptTBg.png) no-repeat right center;
+    color: #fff;
+    text-align: right;
+    z-index: 2;
+}
+
+.content .firstContent .itemLeft .cptCover {
+    width: 309px;
+    padding: 6px 8px;
+    background: rgba(0, 0, 0, .5);
+    font-size: 14px;
+    height: 38px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    display: block;
+}
+
+.content .firstContent .itemLeft .cptCover .songListName {
+    width: 295px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+    display: block;
+    line-height: 19px;
+}
+
+.content .firstContent .itemLeft .cptCover .songListSinger {
+    width: 295px;
+    color: #cfcfcf;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 19px;
+}
+
+.content .firstContent .itemLeft .itemSongList .cptCover {
+    width: 309px;
+    padding: 6px 8px;
+    background: rgba(0, 0, 0, .5);
+    font-size: 13px;
+    height: 38px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    display: block;
+}
+
+.content .firstContent .itemLeft .itemSongList .cptCover .songListName {
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+    display: block;
+    line-height: 15px;
+}
+
+.content .firstContent .itemLeft .itemSongList .cptCover .songListSinger {
+    width: 100px;
+    color: #cfcfcf;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 15px;
+}
+
+.content .firstContent .itemLeft .top-right .music_icon {
+    background: url(./img/sprite.png) no-repeat;
+    background-position: 0 -267px;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    width: 14px;
+    height: 14px;
+    line-height: 30px;
+    text-align: right;
+}
+
+.content .firstContent .itemLeft .itemSongList div {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 160px;
+    height: 160px;
+    padding: 0;
+    margin: 0 5px 5px 0;
+    /* background: red; */
+    box-sizing: border-box;
+}
+
+.content .firstContent .itemRight {
+    width: 320px;
+    height: 385px;
+    /* background: #000; */
+}
+
+.content .firstContent .itemRight .itemTitle {
+    background: url(./img/hotlist.jpg) no-repeat 0 0;
+    height: 30px;
+    padding-bottom: 30px;
+}
+
+.content .firstContent .itemRight .itemTitle .more {
+    color: #999;
+    margin-top: 7px;
+    font: 13px;
+}
+
+.content .firstContent .itemRight .itemTitle .more:hover {
+    color: #009af3;
+}
+
+.content .firstContent .itemRight .itemContent {
+    overflow: hidden;
+    height: 325px;
+    display: block;
+    font: 13px;
+    position: relative;
+}
+
+.content .firstContent .itemRight .itemContent div {
+    margin-bottom: 15px;
+    background-color: #f6f6f6;
+    position: relative;
+    display: block;
+    height: 98px;
+}
+
+.content .firstContent .itemRight .itemContent .arrow_right {
+    background: url(./img/sprite.png) no-repeat 0 -322px;
+    width: 7px;
+    height: 14px;
+    position: absolute;
+    top: 50%;
+    margin-top: -7px;
+    right: 10px;
+    z-index: 20;
+}
+
+.content .firstContent .itemRight .itemContent div a {
+    display: block;
+}
+
+.content .firstContent .itemRight .itemContent .textbox {
+    overflow: hidden;
+    width: 200px;
+    height: 68px;
+    padding: 15px 10px;
+    font-size: 14px;
+    display: block;
+}
+
+.content .firstContent .itemRight .itemContent .textbox dt {
+    line-height: 24px;
+    color: #333;
+    font-weight: 700;
+}
+
+.content .firstContent .itemRight .itemContent .textbox dd {
+    width: 180px;
+    line-height: 24px;
+    font-size: 14px;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

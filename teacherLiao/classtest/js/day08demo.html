@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组遍历</title>
+</head>
+
+<body>
+    <script>
+        var arr = ["student1", 'student2', 'student3', 'student4', 'student5'];
+        console.log("-------------普通for循环---------------");
+        for (let i = 0; i < arr.length; i++) {
+            a = arr[i];
+            console.log(a + '----' + i);
+            // if (i = 3) {
+            //     console.log(a);
+            // }
+        }
+        console.log("------------for-in-循环---------------");
+        for (var adx in arr) {
+            console.log(arr[adx] + "----" + adx);
+        }
+        console.log("------------foreach循环--------------");
+        arr.forEach(function(e, i) {
+            // console.log(e + '----' + i);
+            switch (i) {
+                case 0:
+                    e = "罗建明";
+                    break;
+                case 1:
+                    e = "小罗卡卡的";
+                    break;
+            }
+            console.log(e + '----' + i);
+        });
+        console.log("------------for修改元素--------------");
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = "夏荣金";
+            console.log(arr[i] + '----' + i);
+            // if (i = 3) {
+            //     console.log(a);
+            // }
+
+
+            var a = 10;
+
+            function test(a) {
+                a = 100;
+                return a;
+            }
+            var res = test(a);
+            console.log(res);
+        };
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!-- document对象是window对象的一部分 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #div1{
+            height: 20px;
+            width: 50px;
+            background-color: #333;
+        } */
+        /* body{
+            font-size: 32px;
+        }
+        button{
+            background: green;
+        }
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: grey;
+            display: none;
+        }
+        .active{
+            background-color: hotpink;
+        } */
+        /* li:hover{
+            background-color: tomato !important;
+        }
+      */
+      /* html,body{
+        height: 100%;
+      } */
+    </style>
+</head>
+<body>
+    <!-- <div id="p1" class="classP">
+        <img class="pic" name='p1' src="" alt="">
+        <p>1</p>
+        <p>2</p>
+    </div> -->
+    <!-- <div id="div1">
+    </div> -->
+<!-- <button class="active">1</button>
+<button>2</button>
+<button>3</button>
+<div style="display: block;">aaa</div>
+<div>bbb</div>
+<div>ccc</div>
+     -->
+
+  
+</body>
+</html>
+<script>
+  
+
+    // console.log(document);
+    // console.log(document.doctype);
+    // console.log(document.documentElement);
+    // console.log(document.head);
+    // console.log(document.body);
+    // console.log(document.documentURI);
+    // console.log(document.URL);
+    // console.log(document.domain);
+    // console.log(document.lastModified);
+    // location.href='http://www/baidu.com'//修改当前网页的url
+    // console.log(document.title);
+    // 通过id获取元素
+    // var byId=document.getElementById('p1');
+    // console.log(byId);
+    // //通过标签名获取元素
+    // var imgs=document.getElementsByTagName('p1');
+    // console.log(imgs);
+    // //通过class名称获取元素
+    // var byClass=document.getElementsByClassName('pic');
+    // console.log(byClass);
+    // //通过属性名称获取元素
+    // var byName=document.getElementsByName('p1');
+    // console.log(byName);
+    // //querySelector是通过css写法查找元素；
+    // var p1=document.querySelector('#p1 .pic ')
+    // console.log(p1)
+    // //getElement性能好，它是动态的，querySelector按css规范方便，是静态的。
+    // var div1=document.getElementById('div1');
+    // div1.onclick=function(){
+    //     // this.innerHTML='你好，小夏！';
+    //     // this.innerText='你好，小夏！';
+    //     // this.innerHTML='<h1>你好，小夏！</h1>';//当成代码执行
+    //     // this.innerText='<h1>你好，小夏！</h1>';//当成文本直接展示
+    // }
+    // var arr=[];
+    // for (let i=0 ;i < 3;i++) {
+    //     arr[i]=function(){
+    //         console.log(i);
+    //     } 
+    // }
+    // arr[1]();
+    // var btns=document.querySelectorAll('button');
+    // console.log(btns)
+    // var divs=document.getElementsByTagName('div');
+    // console.log(divs)
+    // for (let i = 0; i < btns.length; i++) {
+    //     btns[i].onclick=function(){
+    //         for (let j = 0; j < btns.length; j++) {
+    //            btns[j].className=''; 
+    //            divs[j].style.display='none';
+    //         }
+    //         btns[i].className='active'; 
+    //         divs[i].style.display='block';
+    //     }      
+    // }
+    // var body=document.body;
+    // var div=document.createElement('div')//创建元素节点；
+    // var txt=document.createTextNode('你好，小夏！')//创建文本节点；
+    // var style=document.createAttribute('style')//创建属性节点；
+    // style.value='color:red;font-weight:bold;font-style:italic;background:blue';//给属性节点添加内容
+    // div.setAttributeNode(style)//给元素节点附加属性
+    // div.appendChild(txt)//把文本节点放入元素节点里
+    // body.appendChild(div)//把元素节点放进body文档里面
+    // var arr=['首页','百度','华为','京东','淘宝']
+    // var menu=document.createElement('ul');
+    // var ulStyle=document.createAttribute('style');
+    // ulStyle.value='list-style:none;display:flex;justify-items: center; align-items: center;'; 
+    // menu.setAttributeNode(ulStyle);
+    // for(let i =0;i<arr.length;i++){
+    //     var li=document.createElement("li");
+    //     li.innerHTML=arr[i];
+    //     var liStyle=document.createAttribute('style');
+    //     liStyle.value=' width:100px;height:40px;line-height:40px;background:#f0c;display:inline-block;text-align:center;'
+    //     li.setAttributeNode(liStyle);
+    //     menu.appendChild(li);
+    // }  
+    // document.body.appendChild(menu);   
+
+    // var div=document.querySelector('div');
+
+    // //设置元素的属性
+    // div.setAttribute('id',"div1");
+    // div.setAttribute('name',"div1");
+
+    // //获取属性名称
+    // var divClass=div.getAttribute('class');
+    // console.log(divClass);
+
+    // // //移除属性名称
+    // // div.removeAttribute('class');
+
+    // //设置样式
+    // div.style.cssText+='font-size:100px;color:red;';//+=不会覆盖原来的style否则会覆盖
+
+    // //对style属性里面的样式进行操作
+    // div.style.setProperty('font-style','italic')//添加样式的属性与内容
+    // console.log(div.style.getPropertyValue('color'))//得到样式属性的值
+    // div.style.removeProperty('font-size')//移除样式的属性
+
+// var body1= document.querySelector('body');
+// var imgs=document.createElement('img');
+// imgs.setAttribute('src','../js学习/images/my.jpeg');
+// imgs.style='width:400px;height:600px;border:20px dotted red';
+// body1.appendChild(imgs)
+// console.log(body)
+// body1.onclick=function(){
+//     var div =document.createElement('div');
+//     var style=document.createAttribute('style');
+//     style.value="width:500px;height:300px;background:blue"
+//     div.setAttributeNode(style)
+// // div.style="width:500px;height:300px;background:blue"
+//     body1.appendChild(div)
+//     console.log('hjhh')
+// }
+</script>

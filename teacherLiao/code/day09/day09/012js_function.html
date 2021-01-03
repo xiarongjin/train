@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>return和break</title>
+		<script type="text/javascript">
+			function function1(){
+				
+				for(var i=0; i<5; i++){
+					console.log("abc");
+					if(i==3){
+						break ;
+					}
+				}
+				console.log("break;");
+			}
+			function1();
+			
+			function function2(){
+			
+				for(var i=0; i<5; i++){
+					console.log("helloworld");
+					if(i==3){
+						return ;
+					}
+				}
+				console.log("return;");
+			}
+			function2();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

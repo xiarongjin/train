@@ -1,0 +1,132 @@
+.banner {
+    width: 100%;
+    min-width: 1200px;
+    height: 660px;
+    background: url(../images/functionBannerBg.jpg) #f3f3f3 no-repeat center center;
+}
+
+.banner .bannerContentbox {
+    width: 1200px;
+    height: 660px;
+    margin: 0 auto;
+    position: relative
+}
+
+.banner .bannerContentbox .firstpic {
+    position: absolute;
+    top: calc(50% - 110px);
+    left: calc(50% - 254px);
+    width: 507px;
+    height: 68px;
+    background-size: 50% 50%;
+    opacity: 0;
+    background: url(../images/qyyzsyx.png) no-repeat center;
+    animation: getup100 1s ease-in-out forwards;
+}
+
+.banner .bannerContentbox .secondpic {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 254px);
+    width: 507px;
+    height: 68px;
+    opacity: 0;
+    background-size: 50% 50%;
+    background: url(../images/jjfagys.png) no-repeat center;
+    animation: getup100 1s ease-in-out forwards;
+}
+
+.banner .bannerContentbox .xiangtui {
+    position: absolute;
+    top: calc(50% - 42px);
+    left: calc(50% - 42px);
+    width: 84px;
+    height: 84px;
+    background: url(../images/xiangtui.png);
+    animation: rotateY360 1s ease .5s backwards;
+}
+
+.roundnav {
+    height: 170px;
+    width: 100%;
+    position: relative;
+    background: #f73856;
+}
+
+.roundnav .navbox {
+    width: 1200px;
+    height: 170px;
+    /* background: #fff; */
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 20px 0;
+}
+
+.roundnav .navbox li a {
+    display: block;
+    float: left;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    width: 100px;
+    height: 130px;
+    /* background-color: wheat; */
+    margin: 0 150px;
+}
+
+.roundnav .navbox .imgbg {
+    width: 94px;
+    height: 94px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.roundnav .navbox .bg1 {
+    background: url(../images/ggtg.png) no-repeat center;
+}
+
+.roundnav .navbox .bg2 {
+    background: url(../images/hdch.png) no-repeat center;
+}
+
+.roundnav .navbox .bg3 {
+    background: url(../images/xszb.png) no-repeat center;
+}
+
+.roundnav .navbox li:nth-child(1):hover .bg1 {
+    background: url(../images/ggtg_hover.png) no-repeat center;
+}
+
+.roundnav .navbox li:nth-child(2):hover .bg2 {
+    background: url(../images/hdch_hover.png) no-repeat center;
+}
+
+.roundnav .navbox li:nth-child(3):hover .bg3 {
+    background: url(../images/xszb_hover.png) no-repeat center;
+}
+
+.ggtg {
+    height: 684px;
+    width: 100%;
+    /* background: cornsilk; */
+    /* position: relative; */
+}
+
+.ggtg .ggtgbox {
+    height: 684px;
+    width: 1200px;
+    margin: 0 auto;
+    /* background: cornsilk; */
+    position: relative;
+}
+
+.ggtg .ggtgbox .toptriangle {
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    z-index: -1;
+    border-top: 200px solid #fd5a74;
+    border-left: 600px solid #fd5a74;
+    border-bottom: 60px solid transparent;
+    border-right: 760px solid transparent;
+}

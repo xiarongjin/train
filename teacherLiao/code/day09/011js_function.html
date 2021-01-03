@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js函数</title>
+		<script type="text/javascript">
+			
+			function test(){
+				console.log("test");
+			}
+			
+			var a = test();
+			console.log(a)
+			
+			
+			function test1(){
+				return 1;
+			}
+			
+			// 将函数执行之后的结果 给到t1
+			var t1 = test1();
+			console.log(t1);
+			// 将函数给t2
+			var t2 = test1;
+			console.log(t2());
+			console.log(typeof(t1));
+			console.log(typeof(t2));
+			
+			
+			// return 用来结束方法， 如果有数据，送出返回值
+			function function1(){
+				return "abc";
+			}
+			console.log(function1());
+			
+			// break 和 return -> 
+			function function2(){
+				console.log("abc");
+				return;
+				console.log("bcd");
+			}
+			
+		
+			function2();
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

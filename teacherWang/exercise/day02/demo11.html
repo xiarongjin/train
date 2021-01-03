@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes haha {
+            0% {
+                display: block;
+            }
+            100% {
+                display: none;
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul,
+        ol {
+            list-style: none;
+        }
+        
+        .pic-wall {
+            /* width: 500px; */
+            height: 600px;
+            /* margin: 0 auto; */
+            background: rgba(0, 0, 0, .2);
+        }
+        
+        .pic-wall .pic-top {
+            padding-top: 1px;
+            height: 300px;
+        }
+        
+        .pic-wall .pic-top ul {
+            width: 1270px;
+            margin: 50px auto;
+        }
+        
+        .pic-wall .pic-top li {
+            float: left;
+        }
+        
+        .pic-wall .pic-top li img {
+            /* transform: scale(0.5); */
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            background: white;
+            width: 254px;
+            height: 165px;
+            animation: haha 1s ease 0s;
+        }
+        
+        .pic-wall .pic-top li img:hover {
+            transform: scale(1.1);
+        }
+        
+        .pic-wall .pic-top li:nth-child(1) img {
+            transform: rotateZ(-20deg);
+        }
+        
+        .pic-wall .pic-top li:nth-child(2) img {
+            transform: rotateZ(-20deg) translateY(50px) translateX(-50px);
+        }
+        
+        .pic-wall .pic-top li:nth-child(3) img {
+            transform: rotateZ(20deg) translateX(-50px);
+        }
+        
+        .pic-wall .pic-top li:nth-child(4) img {
+            transform: rotate(-20deg) translateX(-50px);
+        }
+        
+        .pic-wall .pic-top li:nth-child(5) img {
+            transform: rotate(30deg) translateX(-50px);
+        }
+        /*  */
+        
+        .pic-wall .pic-bottom {
+            margin-top: 50px;
+            height: 300px;
+        }
+        
+        .pic-wall .pic-bottom ul {
+            width: 1270px;
+            margin: 50px auto;
+        }
+        
+        .pic-wall .pic-bottom li {
+            float: left;
+        }
+        
+        .pic-wall .pic-bottom li img {
+            /* transform: scale(0.5); */
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            background: white;
+            width: 254px;
+            height: 165px;
+        }
+        
+        .pic-wall .pic-bottom li:nth-child(1) img {
+            transform: rotateZ(-20deg);
+        }
+        
+        .pic-wall .pic-bottom li:nth-child(2) img {
+            transform: rotateZ(-20deg) translateY(50px) translateX(-50px);
+        }
+        
+        .pic-wall .pic-bottom li:nth-child(3) img {
+            transform: rotateZ(20deg) translateX(-50px);
+        }
+        
+        .pic-wall .pic-bottom li:nth-child(4) img {
+            transform: rotate(-20deg) translateX(-50px);
+        }
+        
+        .pic-wall .pic-bottom li:nth-child(5) img {
+            transform: rotate(30deg) translateX(-50px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pic-wall">
+        <div class="pic-top">
+            <ul>
+                <li><img src="./img/p1.jpg" alt=""></li>
+                <li><img src="./img/p1.jpg" alt=""></li>
+                <li><img src="./img/p1.jpg" alt=""></li>
+                <li><img src="./img/p1.jpg" alt=""></li>
+                <li><img src="./img/p1.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="pic-bottom">
+            <ul>
+                <li><img src="./img/p7.jpg" alt=""></li>
+                <li><img src="./img/p7.jpg" alt=""></li>
+                <li><img src="./img/p7.jpg" alt=""></li>
+                <li><img src="./img/p7.jpg" alt=""></li>
+                <li><img src="./img/p7.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

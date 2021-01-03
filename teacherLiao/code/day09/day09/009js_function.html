@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js 没有重载函数</title>
+		<script type="text/javascript">
+			// js中函数可以重定义，但是后面定义的函数会覆盖掉前面同名的函数
+			function test(){
+				console.log(arguments[0]);
+				
+				for(var idx in arguments){
+					console.log(arguments[idx]);
+				}
+			}
+			
+			/* function test(a){
+				console.log("test()...." + a);
+			}
+			 */
+			
+			// arguments   这是在函数体中，保存了所有的实参的随想
+			test(100,200);
+			
+			function fun(a, a){
+				console.log(a);
+			}
+			
+			fun(1);
+			console.log("---------------------");
+			
+			// 定义一个函数，可以将某个数据放大两倍，如果没给数据， 我就将参数的默认值设为100
+			function fun1(a){
+				/* if(a==undefined){
+					a = 100;
+				} */
+				
+				a = a || 100;
+				return a*2;
+			}
+			
+			var res = fun1();
+			console.log(res);
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

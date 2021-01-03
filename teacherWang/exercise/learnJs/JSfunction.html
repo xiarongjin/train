@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS函数</title>
+</head>
+<body>
+    <!-- <div>
+        <a href="javascript:void(0);">void()函数应用，将链接变成死链接</a>
+    </div> -->
+    <!--作业： 计算器布局 -->
+    <!-- <table border="1" width="200" cellspacing='1'>
+        <tr height="30">
+            <td colspan="4" style="text-align: right;">0</td>
+            
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>+</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>*</td>
+        </tr>        
+        <tr>
+            <td>0</td>
+            <td>.</td>
+            <td>/</td>
+            <td>=</td>
+        </tr>
+
+    </table> -->
+</body>
+<script type="text/javascript">
+////定义一个无参数有返回值的函数
+//function abc(){
+//     console.log("js函数学习");
+//     return "hello";
+//}
+////执行函数
+//var res = abc();
+//console.log(res)  
+//function abc(){
+//    console.log()
+//}
+// 无参有返回值的函数；
+// function abc(){
+//     var r=3;
+//     return Math.PI*Math.pow(r,2);
+// }
+// console.log(abc());
+// 匿名函数
+// var abc =function(){
+//     console.log("1")
+// }
+// abc();
+// 函数提升 先使用再声明
+// console.log(sum(2,3))
+// function sum(a,b){
+//     return a+b; 
+// }
+// 递归函数，函数自己调用自己；
+// function abc() {
+//     console.log("这是递归函数");
+//     abc();
+//     }
+//   abc();
+// var n=1;
+// function fn() {
+//     console.log("这是递归函数，能终止的");
+//     n++;
+//     if (n>30) {
+//         return;//跳出函数
+//     }
+//     fn();
+//   }
+//   fn();
+// 默认值和函数传参；
+//参数默认值 es5写法：
+// function abc(a,b) {
+//     a=a||0;
+//     b=b||0;
+//     console.log(a+b);
+// }
+// abc(2);
+//es6写法
+// function abc(a=0,b=0) {
+//     console.log(a+b);
+// }
+// abc(2);
+
+// 作业
+// 简易计算器
+// var tds = document.querySelectorAll('td');
+// var abc=function(i){
+// tds[i].onclick =function(){
+//     tds[0].innerHTML+=tds[i].innerHTML;
+// }};
+// for (var i =1;i<tds.length-1;i++){
+// abc(i);
+// };
+// tds[tds.length-1].onclick =function(){
+//     tds[0].innerHTML=eval( tds[0].innerHTML); 
+//     tds[0].innerHTML='';  
+// }
+// 递归函数计算1+2+3+4+5之和；
+// var num=5;
+// var count=0;
+// function fn(){
+// count+=num;
+// num--;  
+// if(num==0){
+//     return;
+// };
+// fn();
+// }
+// fn();
+// console.log(count);
+
+// 作用域
+// Javascript只有两种作用域
+// 1、全局作用域
+// 2、局部作用域
+// 局部变量会在函数运行以后被删除。
+// 全局变量会在页面关闭后被删除。
+// 使用严格模式
+// "use strict"
+// haha="严格模式不能这样声明变量"
+// console.log(哈哈)
+// 值传递和地址传递；
+// 函数的值传递：形式参数的改变不会影响到实际参数；
+// 地址传递：实际参数和形式参数公用一个地址，形式参数的改变会影响到实际参数；
+// 值传递
+// var  num=100;
+// console.log(num);
+// function change(num){
+//     num = 200;
+//     console.log(num);
+// }
+// change();
+// console.log(num);//不会影响到实际参数
+
+// 地址传递
+// var arr= ['red','green','blue'];
+// console.log(arr);
+// function changearr(arr){
+//     arr[0]='yellow';
+//     console.log(arr);
+// }
+// changearr(arr);//传递进来的是arr数组的地址；函数形式参数改变的是地址里面的数组内容
+// console.log(arr);
+
+//函数的同名参数；
+// function f1(a,a){
+//     console.log(a);//这里取到的是第二个a
+// }
+// f1(1);//这里传的是第一个a
+
+// 作业：统计字符串中出现次数最多的字符，不区分大小写；
+// var str='agjhkgskdfjhKHJKGHJKHHIU';
+// var str1=str.toLowerCase();
+// // console.log(str1[1]);
+// var objectStr={};
+// for(var i=0;i<str1.length;i++){
+//     if(objectStr[str1[i]]==undefined){
+//         objectStr[str1[i]]=1;
+//     }else{
+//         objectStr[str1[i]]++;
+//     }
+// }
+// console.log(objectStr);
+
+
+
+
+//闭包：
+//this最终指向那个执行函数的对象；
+//    
+// 闭包使用的场景：模块化开发；
+// var test=(function(){
+//     var num =100;
+//     return {abc:function(){
+//         return num;
+//     }}
+// })();//自执行函数；一个模块
+// var test2=(function(){
+//     var num =1200;
+//     return {abc:function (){
+//         return num;
+//     }}
+// })();
+// console.log(test.abc(),test2.abc())
+
+
+</script>       
+</html>

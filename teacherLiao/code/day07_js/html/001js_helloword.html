@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js的使用方式</title>
+		<!-- 外部引入式 -->
+		<script src="../js/test.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		<!-- 存在一个按钮 -->
+		<!-- 单击按钮的时候，在控制台输出 helloworld -->
+		<!--  行内式 -->
+		<button onclick="console.log('helloworld');">helloworld按钮</button>
+		<button onclick="helloworld();">你好按钮</button>
+		<button onclick="hw();">大家好！！</button>
+	</body>
+	
+	<script type="text/javascript">
+		/* 嵌入式 需要使用script标签，理论上可以放在页面的任何地方*/
+		function helloworld(){
+			console.log("你好世界！！！");
+		}
+	</script>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业2</title>
+    <style>
+        body{
+            position: relative;
+            padding-bottom: 0;
+            height: 100%;
+            min-height: 600px;
+            font-size: 12px;
+            font-family: "PingFang SC",Arial,"Microsoft YaHei",sans-serif;
+        }
+        div{
+            display: block;
+        }
+        .head {
+            background:#fff;
+            height: 100px;
+            position: absolute;
+            z-index: 99;
+            min-width: 1000px;
+            width: 100%;
+            height: 60px;
+            border-bottom: 0;
+            text-align: center;
+        }
+        .head .left{
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            height: 60px;
+            padding-left: 24px;
+        }
+        .head .left .tag:hover{
+            color: #4e71f2 ;
+        }
+        .head .left .tag{
+            margin-right: 31px;
+            margin-top: 19px;
+            display: inline-block;
+            position: relative;
+            display: inline-block;
+            color: #222;
+            font: 13px/23px Arial,sans-serif;
+            list-style: none;
+            text-decoration: none;
+        }
+        .head .right{
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 100;
+            height: 60px;
+            padding-right: 24px;
+        }
+        .head .right .right-text{
+            margin-left: 32px;
+            margin-top: 19px;
+            display: inline-block;
+            position: relative;
+            vertical-align: top;
+            cursor: pointer;
+            color: #222;
+            font:13px/23px Arial,sans-serif ;
+        }
+        .head .right .login-btn{
+            display: inline-block;
+            margin-top: 18px;
+            margin-left: 32px;
+            font-size: 13px;
+            color: #fff!important;
+            text-decoration: none;
+            background-color: #4e71f2;
+            height: 24px;
+            width: 48px;
+            line-height: 24px;
+            overflow: hidden;
+            font-family: inherit;
+            font-weight: 400;
+            text-align: center;
+            vertical-align: middle;
+            outline: 0;
+            border: 0;
+            border-radius: 6px;
+            padding: 0;
+            cursor: pointer;
+        }
+        .mid{
+            position: relative;
+            width: 654px;
+            height: 600px;
+            margin: 0 auto;
+            text-align: left;
+            z-index: 100;
+        }
+        .mid .lg{
+            width: 654px;
+            height: 600px;
+            margin: auto;
+        }
+        .mid .lg .logo{
+            position: absolute;
+            margin-top: 25%;
+            left: 50%;
+            margin-left: -135px;
+            z-index: 101;
+        }
+        .mid .search{
+            min-width:654px ;
+            position: absolute;
+            margin: auto;
+            margin-top: -45%;
+            
+            height: 50px;
+          
+        }
+        input{
+            
+            min-width:654px ; 
+            border: 0;
+            border: 2px solid #d3d5db;
+            border-radius: 10px;
+            height: 50px;
+        }
+        .mid .search .text{
+            position: absolute;
+            right: -2px;
+            top: 0px;
+            height: 32px;
+            width: 100px;
+            padding: 12px;
+            background:  #4e71f2;
+            color: #fff;
+            font-size: 20px;
+            border-radius: 0 10px 10px 0;
+        }
+        .mid .search .icon{
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            background-position: 0 -51px;
+            right: 130px;
+            margin-top: -9px;
+            background: #fff url(https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/searchbox/nicon-10750f3f7d.png) no-repeat ;
+            width: 24px;
+            height: 24px;
+            
+        }
+        .search input:focus{
+            min-width:654px ; 
+            border: 2px solid  #4e71f2;
+            border-radius: 10px;
+            height: 50px;
+            outline: none;
+
+        }
+        .search input:hover{
+            min-width:654px ; 
+            border: 2px solid  #4e71f2;
+            border-radius: 10px;
+            height: 50px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="head">
+        <div class="left">
+            <a href="http://news.baidu.com" target="_blank" class="tag">新闻</a>
+            <a href="http://news.baidu.com" target="_blank" class="tag">hao123</a>
+            <a href="http://news.baidu.com" target="_blank" class="tag">地图</a>
+            <a href="http://news.baidu.com" target="_blank" class="tag">视频</a>
+            <a href="http://news.baidu.com" target="_blank" class="tag">贴吧</a>
+            <a href="http://news.baidu.com" target="_blank" class="tag">学术</a>    
+        </div>
+        <div class="right">
+            <span class="right-text" nname="shezhi" >设置</span>
+            <a class="login-btn" href="https://passport.baidu.com/v2/?login&tpl=mn&u=http%3A%2F%2Fwww.baidu.com%2F&sms=5" name="login">登录</a>
+        </div>
+    </div>
+    <div class="mid">
+        <div class="lg">
+            <img class="logo" src="../作业2/images/logo.png" width="270" height="129" alt="">
+        </div>
+        <div class="search">
+            <input class="shuru" type="text" name="search" value=""/>
+            <span class="icon"></span>
+            <div class="text" >百度一下</div>
+        </div>
+    </div>
+    <div class="footer">
+
+    </div>
+</body>
+</html>

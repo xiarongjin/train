@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js参数传递值</title>
+		<script type="text/javascript">
+			var arr = [1,2,3];
+			
+			// 引用传递
+			function test(arr){
+				arr[0] = 100;
+			}
+			
+			test(arr);
+			console.log(arr);
+			
+			var a = 10;
+			// 值传递
+			function test1(a){
+				a = 100;
+			}
+			
+			test1(a);
+			console.log(a);
+			
+			console.log("-----------------------------");
+			
+			var arr = [1,2,3];
+			// 值传递 
+			function test3(arr){
+				arr = 100;
+			}
+			test3(arr);
+			console.log(arr);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

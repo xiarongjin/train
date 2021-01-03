@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则</title>
+   
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.loginPanel{
+			border: 1px solid #333;
+			/* height: 200px; */
+			padding: 20px;
+			width: 250px;
+			height: auto;
+			/* display: inline-block; */
+			margin: 30px auto;
+			background-color: #bbb;
+			border-radius: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="abc">aaa</div>
+	<div class="loginPanel">
+	<form>
+		账　　户：<input type="text" name="username"><br>
+		密　　码：<input type="password" name="password"><br>
+		确认密码：<input type="password" name="confirmpassword"><br>
+		手　　机：<input type="text" name="phone"><br>
+		邮　　箱：<input type="text" name="email"><br><br>
+		<hr>
+		<!-- <input type="button" value="注册" id="submit"/> -->
+		<input type="button" value="重置" id="reset"/>
+	</form>
+</div>
+</body>
+<script>
+	// var reg=new RegExp('a');
+	// var reg=/a/i;
+	// var str='abcdefg';
+	// console.log(str.replace(/e/i,'a'));
+	// var str='x123'
+	// var reg=/^[a-z]?\d{1,4}$/ //^后面接以某字符串开头，$前面接以某字符串结尾,+表示1个或多个，?表示0或1个,{num}指定次数
+	// console.log(reg.test(str))
+	// console.log(str.match(reg));
+
+	var Data={};
+	var getData=document.querySelectorAll("input")
+	
+	console.log(getData)
+	  
+	 
+
+	
+	getData[5].onclick=submitve;
+	function submitve() {  
+		getData.forEach(function (item) {
+			Data[item.name]=item.value;
+	  })
+	  console.log(Data)
+	}
+
+	  
+	
+</script>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的学习</title>
+    <script src="./js/event.js"></script>
+    <style>
+        *{
+            margin: 0;
+        }
+     html,body{
+          height: 100%;
+        }
+        ul li{
+            list-style: none;
+        }
+        /* .father{
+            width: 200px;
+            height: 200px;
+          background-color: grey; 
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+          background-color: red; 
+        } */
+        /* .menu{
+            display: none;
+        }
+        .menu ,.title{
+            cursor: pointer;
+        } */
+        /* .usertrue{
+            color: green;
+            font-size: bold;
+        }
+        .userfalse{
+            color: red;
+            font-size: bold;
+        } */
+        /* .box{
+            margin: 0 auto;
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        .box .content{
+            width: 280px;
+            position: absolute;
+        }
+        .box .bar{
+            height:300px;
+            width: 12px;
+            position: absolute;
+            right: 0;
+            background: #EEEEEE;
+        }
+        .box .bar .slidebar{
+            height:20px;
+            width: 12px;
+            position: absolute;
+            background-color: red;
+        } */
+    </style>
+</head>
+<body>
+<!-- 自定义滚动条 -->
+<!-- <div class="box">
+    <div class="content">
+        <p>
+            林琳和李畅是一对夫妻，李畅温柔多金，林琳知书达理，两人相识不久即坠入爱河、走入婚姻，婚后林琳经营小家，李畅则在外打拼事业。
+一次偶然的机会，林琳在丈夫李畅的手机里看到了数笔大额转账记录，收款方是李畅的前女友吴玥，林琳立即质问李畅。
+李畅承认，他与吴玥之间还有联系，原因是吴玥不满李畅与别人结婚，不断纠缠，要求给她“分手费”。为了不影响婚姻生活，李畅按照吴玥的要求支付了数笔“分手费”。
+林琳又惊又怒，一边要求李畅与吴玥断绝一切往来，另一边又担心李畅优柔寡断，到吴玥工作的公司大闹一场。
+然而，林琳没有得到她预期的效果。不久，她再次发现李畅给吴玥转账，转账频率基本保持在每月一次，每次50万元。林琳再次质问李畅为何还与吴玥有联系，并再三要求他与吴玥断绝往来。李畅坚决否认与吴玥之间还有感情或联络，但又无法就频繁转账给出一个令林琳信服的解释。
+面对无法自圆其说的丈夫，林琳一纸诉状将李畅和吴玥告到上海市虹口区人民法院。
+法院确认赠与行为无效
+法庭上，林琳认为，婚后，李畅在自己不知情的情况下多次向吴玥大额转账，擅自处分夫妻共同财产，侵犯其合法权益，要求法院确认李畅对吴玥转账的赠与行为无效，并要求吴玥返还全部转账款项合计550万元。
+        </p>
+    </div>
+    <div class="bar">
+        <div class="slidebar"></div>
+    </div>
+</div> -->
+
+
+
+
+<!--表单验证-->
+<!-- 用户名：<input type="text" name="username"/><span class="usertrue"></span><br/><br/>
+密&nbsp&nbsp&nbsp&nbsp码：<input type="text" name="password"/><br/><br/>
+<input type="submit"/><input type="reset"/> -->
+
+
+
+    <!-- from表单里尽量不要使用button，button会自动提交表单 -->
+    <!-- <button onclick="f1();f2();">点击</button> -->
+
+    <!-- <div class="father">
+        <div class="son">
+        </div>
+    </div> -->
+
+
+    <!-- 单选框选颜色 -->
+   <!-- 红色:<input type="radio" name='color' value='red'>
+   绿色:<input type="radio" name='color' value='green'>
+   蓝色:<input type="radio" name='color' value='blue'>
+    <button>提交</button> -->
+
+
+    <!-- 多选框选颜色 -->
+    <!-- 红色:<input type="checkbox" name='color' value='red'>
+    橙色:<input type="checkbox" name='color' value='orange'>
+    黄色:<input type="checkbox" name='color' value='yellow'>
+    绿色:<input type="checkbox" name='color' value='green'>
+    蓝色:<input type="checkbox" name='color' value='blue'>
+    <button>提交</button>
+    <input type="text"> -->
+
+    <!-- 树形菜单的显示和隐藏 -->
+    <!-- <h2 class='title'>商品展示</h2>
+    <ul class="menu" style="  display: none;" >
+        <li>香烟</li>
+        <li>瓜子</li>
+        <li>啤酒</li>
+        <li>饮料</li>
+        <li>矿泉水</li>
+        <li>八宝粥</li>
+    </ul> -->
+
+    <!-- 事件的绑定与移除 -->
+    <!-- <button id="sub">测试</button> -->
+
+
+    <!-- 调色板 -->
+    <!-- R: <button>-</button><input type="number" value="0"/><button>+</button><br/>
+    G: <button>-</button><input type="number" value="0"/><button>+</button><br/>
+    B: <button>-</button><input type="number" value="0"/><button>+</button><br/>
+    <button>go</button>
+    <div style="height: 100px;width: 100px;"></div> -->
+
+
+    <!-- <input type="text" id="ipt" name=""> -->
+
+    <!-- 利用scrollTop属性回到任意位置（顶部等） -->
+    <!-- <p style="height: 2000px;"></p>
+    <button id="btn" style="position: absolute;bottom:0px;">回到顶部</button> -->
+    <!-- 事件委托 -->
+    <!-- <ul id="list">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul> -->
+
+
+
+
+    </body>
+<script>
+    // function f1() {
+    //     alert("我是f1")    
+    // }
+    // function f2() {
+    //     alert("我是f2")    
+    // }
+    // var btn = document.querySelector('button')
+    // btn.onclick=null;//将点击事件设为空对象消除button的点击事件
+    // btn.removeAttribute('onclick')//移除属性消除点击事件
+</script>
+</html>

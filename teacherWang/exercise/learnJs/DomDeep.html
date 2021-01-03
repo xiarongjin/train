@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom深入</title>
+    <style>
+        html,body{
+            height: 100%                 ;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        ul li{
+            float: left;
+            list-style: none;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- <div>
+        123
+        <p>123</p>
+    </div> -->
+<!-- 
+    <ul>
+        <li>搜狐<a href="javascript:void(0)">隐藏</a></li>
+        <li>雅虎<a href="javascript:void(0)">隐藏</a></li>
+        <li>百度<a href="javascript:void(0)">隐藏</a></li>
+        <li>腾讯<a href="javascript:void(0)">隐藏</a></li>
+        <li>华为<a href="javascript:void(0)">隐藏</a></li>
+    </ul> -->
+
+    <!-- <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+
+    <button>全选</button>
+    <button>取消选中</button> -->
+
+    <!-- <div class="clone">
+        <p>我是第一个标签</p>
+        <p>我是第二个标签</p>
+    </div>
+    <button id="clonebtn">克隆节点</button> -->
+
+       <!-- <div class="div2">213 </div> -->
+     <!-- 昵称：<input type="text" id="nickname"/><br><br>
+     留言：<textarea name="message" id="" cols="30" rows="10"></textarea><br><br>
+     <button class="submit">提交</button><br>
+     <hr>
+     留言板：
+     <ul>
+     </ul> -->
+
+<!-- <div style='position:absolute;border: 10px solid tomato;'>
+    <h2>
+        <a href="#">你好小夏！</a>
+    </h2>
+    <button>点击移动</button>
+</div> -->
+ <div class="leftArrow"  style="height: 300px;width: 100px;background-color: tomato;opacity: 0.2;color: sonw;font-size: 150px;line-height: 300px;">
+    &#60
+ </div>
+<div class="scrollpic" style="position: relative;width: 800px;height: 300px;overflow: hidden;">
+    <ul style="position: absolute;">
+        <li><img src="../learnJs/images/img2.jpg" alt=""></li>
+        <li><img src="../learnJs/images/img3.jpg" alt=""></li>
+        <li><img src="../learnJs/images/img4.jpg" alt=""></li>
+        <li><img src="../learnJs/images/img1.jpg" alt=""></li>
+    </ul>
+</div>
+<div class="rightArrow" style="height: 300px;width: 100px;background-color: tomato;opacity: 0.2;color: sonw;font-size: 150px;line-height: 300px;">
+    &#62
+ </div>
+<!-- <div style="margin-left:20px;width: 200px;height: 300px;border: 10px solid tomato;">
+</div> -->
+<!-- <select name="" id="year">
+    <option value="2019">2019</option>
+    <option value="2020">2020</option>
+</select>
+<select name="" id="mounth">
+   <option value="1">1</option>
+   <option value="2">2</option>
+   <option value="3">3</option>
+   <option value="4">4</option>
+   <option value="5">5</option>
+   <option value="6">6</option>
+   <option value="7">7</option>
+   <option value="8">8</option>
+   <option value="9">9</option>
+   <option value="10">10</option>
+   <option value="11">11</option>
+   <option value="12">12</option>
+</select>
+<br>
+<tr>
+    <td>&nbsp 周一</td>
+    <td>|&nbsp周二</td>
+    <td>|&nbsp周三&nbsp</td>
+    <td>|&nbsp周四</td>
+    <td>|&nbsp周五</td>
+    <td>|&nbsp周六</td>
+    <td>|&nbsp周日</td>
+</tr>
+<table id="table" style="font-size: 26px;" border='1' cellspacing='0'>
+   
+</table> -->
+
+</body>
+<script src="./js/DomDeep.js"></script>
+<script>
+//     var res =localStorage.getItem("user")
+// var res2 =sessionStorage.getItem("user2")
+// console.log(JSON.parse(res))
+// console.log(JSON.parse(res2))
+
+//简易留言板的实现
+// var nickName=document.getElementById('nickname');
+// var msg= document.getElementsByName('message')[0]
+// var submit=document.getElementsByClassName("submit")[0];
+// var msglist=document.getElementsByTagName('ul')[0];
+// submit.onclick=function(){
+//     var msgli=document.createElement('li');
+//     var title=document.createElement('h2');
+//     var content=document.createElement('p');
+//     title.innerHTML=nickName.value;
+//     content.innerHTML=msg.value;
+//     msgli.append(title);
+//     msgli.append(content);
+//     msglist.insertBefore(msgli,msglist.firstChild);
+//     alert('留言成功！')
+//     nickName.value='';
+//     msg.value='';
+// }
+// var delBtn=document.createElement('botton');
+
+//实现克隆节点
+// var divClone=document.querySelector('.clone');
+// // console.log(divClone)
+// var cloneBtn=document.getElementById('clonebtn');
+// cloneBtn.onclick=function(){
+//     // divClone.appendChild(divClone.firstElementChild.cloneNode(true))//加入克隆节点，默认最后面
+//     // divClone.insertBefore(divClone.firstElementChild.cloneNode(true),divClone.firstElementChild)//插入克隆节点，前一个是插入的节点，后一个是插入在那个节点前面
+//     // divClone.removeChild(divClone.firstElementChild)//移除子节点
+//    var span =document.createElement('span');
+//    span.innerHTML='我是一个span标签';
+//    divClone.replaceChild(span,divClone.firstElementChild)//替换子节点
+//   }
+//   console.log(divClone.hasChildNodes())//判断是否含有子节点
+// console.log(divClone.contains(cloneBtn))//判断是否含有此子节点
+// console.log(divClone.isEqualNode(cloneBtn))//判断两个节点是否相同
+
+// //实现复选框全选
+// var inputs = document.querySelectorAll('input')
+// var btns=document.querySelectorAll('button')
+
+// btns[0].onclick=function(){
+//     inputs.forEach(function(items){
+//         items.checked=true;
+//     })
+// }
+// btns[1].onclick=function(){
+//     inputs.forEach(function(items){
+//         items.checked=false;
+//     })
+// }
+    
+
+    //隐藏链接
+// var ahides=document.querySelectorAll('a');
+// for(let i=0 ;i<ahides.length;i++){
+//     ahides[i].onclick=function(){
+//         this.parentElement.style='display:none';
+//     }
+// }
+
+// var div=document.querySelector("div");
+// var p=document.querySelector("p");
+// console.log(div.nodeType) //返回div节点类型
+// console.log(div.nodeName) //返回div节点名称
+
+// console.log(div.ownerDocument)  //返回div所有者
+// console.log(div.childNodes[0])//返回div子节点
+// console.log(div.childNodes[0].ownerDocument)//所有者都是document
+
+// console.log(div.parentNode)//返回父节点
+// console.log(div.parentElement);//返回父元素
+
+// console.log(div.nextSibling)//返回下一个兄弟节点
+// console.log(div.nextElementSibling)//返回下一个兄弟元素
+// console.log(div.previousSibling)//返回上一个兄弟节点
+// console.log(div.previousElementSibling)//返回上一个兄弟元素
+
+// div.textContent='789'
+// console.log(div.textContent)//设置或者返回文本内容。
+
+// console.log(p.nodeValue)//null
+// console.log(p.childNodes[0].nodeValue)//nodeValue只返回文本节点的内容，元素节点返回null
+
+// console.log(div.firstChild);//返回第一个子节点
+// console.log(div.firstElementChild);//返回第一个子元素节点
+// console.log(div.lastChild)//返回最后一个子节点
+// console.log(div.lastElementChild);//返回最后一个元素节点
+
+// console.log(div.childNodes);//返回所有子节点以数组的形式
+// console.log(div.children);//返回所有的元素子节点以HTTML集合（数组）的形式
+
+
+</script>
+</html>

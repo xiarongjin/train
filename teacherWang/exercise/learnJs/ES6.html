@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6学习</title>
+    <script src="js/jQuery.js"></script>
+</head>
+<script>
+// //let块级作用域不存在变量提升，const声明常量不允许修改必须要有初始值
+// const a=123;
+// // 变量泄露
+// var s='hello!';
+// for(var i=0;i<s.length;i++){
+//     console.log(s[i])
+// }
+// console.log(i)//用于循环的变量泄露了
+
+// //变量覆盖
+// var uname='zhangsan';
+// (function test1() {
+//     console.log(uname);//undefined
+//     var uname="李四"
+//     console.log(uname)
+//   })()
+
+
+//结构对象声明变量
+// let {fof,bar}={fof:'123',bar:'456'}
+// console.log(fof,bar)
+
+// var obj={age:23,uname:'xiaoxia'}
+// let {uname,age}=obj;
+// console.log(age)
+
+//unicode码声明字符串；
+// var haha='\u0061';
+// console.log(haha)
+// var haha='\u4e2d\u56fd'
+// console.log(haha)
+
+// var str='buaichanggedexiaoxia';
+// for (let i of str){
+//     console.log(i);
+// }
+
+// var str='xiaoxia';
+// console.log(str.indexOf('i'));
+// //判断字符串是否包含参数，
+// console.log(str.includes('i',5))
+// //判断字符串的开头和结尾
+// console.log(str.startsWith('i',1))
+// console.log(str.startsWith('x'))
+// //将目标字符串重复指定次数，如果是小数则向下取整
+// console.log(str.repeat(2.8))
+
+// var str=' xiao xia '
+// console.log(str)
+// console.log(str.trim()+'|')
+// console.log(str.trimStart()+'|')
+// console.log(str.trimEnd()+'|')
+// console.log(str.replace(/\s/g,'')+'|')
+// console.log(str.replaceAll(' ','')+'|')
+
+//Array.from()可遍历的类似于数组的对象转化成真实的数组
+// function test() {
+//     console.log(arguments)
+//     console.log(Array.from(arguments))
+// }
+// test(1,2,3)
+
+// console.log([1,2,3,4,5].copyWithin(1,2,4))
+// console.log([1,2,3,4,5].fill(1,2,4))
+
+// var arr=[1,2,3,4,5]
+// var res=arr.find(function (item) {
+//     return item>3;
+// })
+// console.log(res)
+// var arr1=['zhangsan','lisi','wangwu']
+// var res=arr1.filter(function (item) {
+//     return item=='zhangsan'||item=='lisi'
+// })
+// console.log(res)
+
+
+//箭头函数
+// var fn=(param)=>{
+//     console.log(param)
+// }
+// 1.是匿名函数
+// 2.参数只有一个的时候，函数的小括号可以省略
+// 3.没有储存参数的arguments数组
+// 4.不是对象构造器,不能new
+// 5.箭头函数的this,本身没有this,跟随上一级函数的this指向
+
+//对象的扩展
+// var username='xiaoxia',age=23;
+// const add='plus1';
+// var obj={
+//     username,
+//     age,
+//     'plus1':function (params) {
+//         console.log(('加法'))
+//     }
+// }
+// obj[add]();
+// obj.plus1()
+// console.log(obj.age)
+
+//set和map不重复类似于数组的对象
+//set容器(键和值相同)
+// var set =new Set();
+// set.add('123');
+// set.add('234');
+// set.add('789');
+// set.add('123');
+// console.log(set);
+// 获取长度用size属性
+// console.log(set.size)
+
+//map容器
+// var map=new Map();
+// map.set('name','xiaoxia')
+// map.set('age',23)
+// map.set(null,3)
+// console.log(map);
+// console.log(map.get(null))
+
+//对象化
+// class Person{
+//     eyes=2;
+//     constructor(a,b){
+//         this.name=a;
+//         this.age=b
+//     }
+//     say(){
+//         console.log(123)
+//     }
+// }
+// Object.assign(Person.prototype,{
+//     getName(){
+//         return this.name
+//     }
+// })
+// Person.prototype.foot='leg'
+// var p1=new Person('zhangsan',20,"abc@qq.com")
+
+// console.log(Person)
+// console.log(p1.getName())
+// console.log(p1.foot)
+// // console.log(p1.say())
+
+// //判断属性是否是这个对象自己的
+// console.log(p1.hasOwnProperty('eyes'))
+// //判断属性存不存在对象里（无论是自己的还是原型的）
+// console.log('foot' in p1)
+
+// // 类的继承；（extends）对比es5的原型链继承要方便的多
+// class Student extends Person{
+//     num=2017
+//     constructor(name,age,study){
+//         super(name,age)//调用父类的构造方法
+//         this.study=study//拓展子类自己的属性
+//         this.city='shanghai'
+//     }
+// }
+// var stu=new Student('xiaoxia',23,98)
+// console.log(stu)
+// stu.say()
+
+
+//代理proxy对象
+// var target={name:'zhangsan' ,age:22}
+// var logHandler={
+//     get:function(target,key){
+//         console.log(`${key}被读取了`)
+//         return target[key]
+//     },
+//     set:function (target,key,value) {
+//         console.log(`${key}被设置成${value}`)
+//         target[key]=value
+//     }
+// }
+// var proxyTarget=new Proxy(target,logHandler)
+// proxyTarget.age=23;
+
+//promise将异步操作以同步操作的形式实现(承诺等待上一层函数执行之后才执行)
+// function test(res) { 
+//  return new Promise(function (resolve,resect) {
+//     setTimeout(() => {
+//         if(res){
+//             resolve(res)
+//         }else{
+//             resect(res)
+//         }
+//     }, 1000+res);
+//   })
+// }
+// function step(param) { 
+//     return test(param)
+// }
+// step(200).then(param=>{
+//       console.log(param)
+//     }).catch(param=>{
+//         console.log(param)
+//     })
+
+
+// $(function(){
+//     var promise =new Promise(function (resolve,reject) {
+//         var img=new Image();
+//         img.src='https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1181903443,1183937440&fm=26&gp=0.jpg'
+//         img.onload=()=>resolve(img)
+//         img.onerror=()=>reject(new Error('图片加载失败'))
+//       })
+
+//     promise.then((img)=>{
+//         document.body.appendChild(img)
+//     }).catch((err)=>{
+//         console.log(err)
+//     })
+//   })
+
+
+
+</script>
+<body>
+    
+</body>
+</html>

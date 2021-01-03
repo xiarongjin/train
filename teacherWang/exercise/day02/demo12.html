@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes v-ani{
+            0%{
+                transform: translateY(-100px);
+            }
+            100%{
+                transform: translateY(0px);
+            }
+        }
+        @keyframes h-ani{
+            0%{
+                transform: translateX(-200px);
+            }
+            100%{
+                transform: translateX(0px);
+            }
+        }
+        @keyframes v-ani2{
+            0%{
+                transform: translateY(200px);
+            }
+            100%{
+                transform: translateY(0px);
+            }
+        }
+        @keyframes v-ani3{
+            0%{
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes v-ani4{
+            0%{
+                /* display: none; */
+                opacity: 0;
+            }
+            100%{
+                /* display: block; */
+                opacity: 1;
+            }
+        }
+
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        #display-pic{
+            width: 660px;
+            margin: 0 auto;
+        }
+        div#col1,div#col2,div#col3{
+            width: 200px;
+            /* height: 100px; */
+            float: left;
+            margin: 0 10px;
+            /* background: red; */
+        }
+        div img{
+            width: 200px;
+            transition: all ease .3s;
+        }
+        div img:hover{
+            transform: scale(1.1);
+        }
+        div#col1 li:nth-child(1) img{
+            animation: v-ani 1s ease;
+        }
+        div#col1 li:nth-child(2) img{
+            animation: h-ani 1s ease;
+        }
+        div#col1 li:nth-child(3) img{
+            animation: v-ani2 1s ease;
+        }
+
+        div#col2 li:nth-child(1) img{
+            animation: v-ani3 2s ease;
+        }
+        div#col2 li:nth-child(2) img{
+            animation: v-ani4 2s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="display-pic">
+        <div id="col1">
+            <ul>
+                <li><img src="images/timg1.jpg" alt=""></li>
+                <li><img src="images/timg2.jpg" alt=""></li>
+                <li><img src="images/timg3.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div id="col2">
+            <ul>
+                <li><img src="images/timg4.jpg" alt=""></li>
+                <li><img src="images/timg5.jpg" alt=""></li>
+                <li><img src="images/timg6.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div id="col3">
+            <ul>
+                <li><img src="images/timg7.jpg" alt=""></li>
+                <li><img src="images/timg8.jpg" alt=""></li>
+                <li><img src="images/timg9.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS对象</title>
+</head>
+
+<body>
+    <h1 align="center">图书管理系统</h1>
+    <div align="center">
+        书名：<input type="text" id="bookName" value=""/> 
+        作者：<input type="text" id="author" value=""/> 
+        价格：<input type="text" id="price" value=""/> 
+        数量：<input type="text" id="count" value=""/>
+    </div>
+   <br>
+    <div  align="center"    >
+        <button id="add">添加</button>
+        <button id="show">查询</button>
+    </div>
+    <hr>
+    <div id="re" >
+        <table align="center" >
+            <th>
+                <td>书名</td>                
+                <td>作者</td>
+                <td>价格</td>
+                <td>数量</td>
+            </th>
+           <tr>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+           </tr>
+        </table>
+
+    </div>
+
+</body>
+<script type="text/javascript">
+var books =[];
+var bookName =document.querySelector("#bookName");
+var author =document.querySelector("#author");
+var price =document.querySelector("#price");
+var count =document.querySelector("#count");
+var add =document.querySelector("#add");
+var show =document.querySelector("#show");
+var re =document.querySelector("#re");
+
+add.onclick = function(){
+    // 把输入的数据添加进数组
+    books.push({
+        bookName:bookName.value,
+        author:author.value,
+        price:price.value,
+        count:count.value,
+    });
+    // 添加完成之后清空输入框,弹出提醒添加成功
+    bookName.value="";
+    author.value="";
+    price.value='';
+    count.value='';
+    alert('添加成功！')
+}
+show.onclick=function(){
+
+}
+
+
+
+    // var obj1 = {};
+    // // var obj2 = new Object();
+    // // var obj3 = Object.create(null);
+    // // console.log(obj1, obj2, obj3)
+    // obj1.name = "张三丰";
+    // obj1["age"] = 20;
+    // obj1.fly = function() {
+    //     console.log("起飞")
+    // };
+    // console.log(obj1);
+    // var keys = Object.keys(obj1);
+    // console.log(keys);
+    // var values = Object.values(obj1);
+    // console.log(values);
+    // var entries = Object.entries(obj1);
+    // console.log(entries);
+    // delete obj1.name;
+    // console.log("name" in obj1)
+    // for --- in 遍历的i是对象的key
+    // for (var i in obj1) {
+    //     console.log(obj1[i])
+    // }
+    // for -- of不能直接遍历对象，可以遍历对象的key，value，entry 
+    // for (var i of Object.keys(obj1)) {
+    //     console.log(i)
+    // }
+    // var arr = [{
+    //     name: '小米',
+    //     age: 20,
+    //     salary: 19000
+    // }, {
+    //     name: '小夏',
+    //     age: 23,
+    //     salary: 8000
+    // }, {
+    //     name: '小罗',
+    //     age: 22,
+    //     salary: 9000
+    // }, {
+    //     name: '小朱',
+    //     age: 22,
+    //     salary: 12000
+    // }, {
+    //     name: '小汪',
+    //     age: 25,
+    //     salary: 2000
+    // }];
+    // arr.sort(function(a, b) {
+    //     if (a.age == b.age) {
+    //         return a.salary - b.salary; //负数或者零a，b不触发换位置，正数触发换位置；
+    //     } else {
+    //         return a.age - b.age //负数a，b不换换位置，正数换；
+    //     }
+    // })
+    // console.log(arr)
+    // var str = "hello world!";
+    // console.log(str[0] + str[1])
+    // math对象
+    // math对象的介绍
+    // Math对象是数学对象
+    // console.log(Math.random());//生成随机数0-1
+    // date对象
+    // var now = new Date();
+    //     var now = new Date();
+    //     var year = now.getFullYear();
+    //     var month = now.getMonth() + 1;
+    //     var date = now.getDate();
+    //     var day = now.getDay();
+    //     var hour = now.getHours();
+    //     var minutes = now.getMinutes();
+    //     var second = now.getSeconds();
+    //     switch (day) {
+    //         case 1:
+    //             myday = "星期一";
+    //             break;
+    //         case 2:
+    //             myday = "星期二";
+    //             break;
+    //         case 3:
+    //             myday = "星期三";
+    //             break;
+    //         case 4:
+    //             myday = "星期四";
+    //             break;
+    //         case 5:
+    //             myday = "星期五";
+    //             break;
+    //         case 6:
+    //             myday = "星期六";
+    //             break;
+    //         case 0:
+    //             myday = "星期日";
+    //             break;
+    //     }
+    //     console.log(`${year}年${month}月${date}日${myday}${hour}点${minutes}分${second}秒`)
+    // var now = new Date();
+    // var lastdate = new Date("2020 / 10 / 25");
+    // var term = lastdate - now;
+    // var days = parseInt(term / 1000 / 60 / 60 / 24);
+    // var hours = parseInt(term / 1000 / 60 / 60 - days * 24);
+    // var minutes = parseInt(term / 1000 / 60 - days * 24 * 60 - hours * 60);
+    // var second = parseInt(term / 1000 - days * 24 * 60 * 60 - hours * 60 * 60 - minutes * 60)
+    // console.log(`距离到期还剩：${days}天${hours}小时${minutes}分钟${second}秒`);
+</script>
+
+</html>

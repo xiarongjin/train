@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function sDate() {
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            var str = h + ':' + m + ':' + s;
+            document.getElementById("span1").innerText = str;
+        };
+
+        function showDate() {
+            setInterval("sDate()", 1000);
+        }
+
+        function myDate() {
+            var date = new Date(1998, 05, 22);
+            var y = date.getFullYear();
+            var m = date.getMonth();
+            var d = date
+            console.log(date);
+            document.getElementById("span1").innerText = str;
+
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <button id="showDate" onclick="showDate();" name="">当前时间</button>
+        <button id="myDate" onclick="mtDate();" name="">我的生日</button>
+    </div>
+    <div>
+        <span id="span1"></span>
+        <span id="span2"></span>
+    </div>
+
+</body>
+
+</html>

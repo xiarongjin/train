@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态计算器</title>
+    <style>
+        div {
+            margin: auto;
+            align-items: center;
+            text-align: center;
+        }
+        
+        input {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="number" id="input1" placeholder="请输入1-9以内的数字" onblur="getInput(this);" />
+
+        <!-- <input type="number" name="" id="input2" placeholder="请输入1-9以内的数字" onblur="getInput(this);" /> -->
+        <button onclick="submitInput();">确认</button>
+    </div>
+    <script>
+        function getInput(t) {
+            a = Number(t.value);
+            // console.log(a);
+            if (a > 10) {
+                alert("请输入1-9以内的数字！");
+            }
+        };
+
+        function submitInput(a) {
+            a = document.getElementById("input1").value;
+            // b = document.getElementById("input2").value;
+            a = Number(a);
+            // b = Number(b);
+            // console.log(a, b);
+            // return (a, b);
+            document.write("<h1>乘法表</h1>")
+            document.write('<table cellspacing="20px">')
+            for (let i = 1; i < a + 1; i++) {
+                document.write("<tr>")
+                for (let j = 1; j < i + 1; j++) {
+                    document.write("<td>");
+                    document.write(i + "×" + j + "=" + (i * j));
+                    document.write("</td>");
+
+                }
+                // document.write("<br/>")
+                document.write("</tr>")
+            }
+            document.write('</table>');
+        };
+        // var arr = [1, 2];
+        // // arr = submitInput();
+        // console.log(arr[0]);
+    </script>
+</body>
+
+</html>

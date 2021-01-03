@@ -1,0 +1,374 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // {
+    //     let p1="zhangsan";
+    //     var p2="lisi";
+    //     const p3="wangwu"
+    // }
+
+    // console.log(p1)
+    // console.log(p2)
+    // console.log(p3)
+
+
+    // var 关键字的变量提升
+    // console.log(username)
+    // var username="123";
+    // let和const不存在变量提升
+    // let username="123";
+    // const username="123"
+    // let和const不允许重复声明
+    // let username="456";
+
+    // 变量覆盖
+    // var uname='jack';
+    // function change(){
+    //     console.log(uname);//undefined
+    //     var uname='rose';
+    //     console.log(uname);//rose
+    // }
+    // change(); 
+
+    // 循环中的全局变量
+    // var s;
+    // s = 'hello';
+    // for (var i = 0; i < s.length; i++) {
+    //     console.log(s[i]);
+    // }
+    // console.log(i); // 5
+
+    // const haha=123;
+    // haha=456;
+    // const haha=123;
+
+    // 解构数组声明变量
+    // let [a,b,c,d,e]=[1,2,3,4];
+    // console.log(a,b,c,d,e)
+    // let [foo, [[bar], baz]] = [1, [[2], 3]];
+
+    // let [ , , third] = ["foo", "bar", "baz"];
+    // console.log(third)
+    // let [x, , y] = [1, 2, 3]; 
+    // console.log(x,y)
+
+    // 默认值
+    // let [abc=true]=[false];
+    // console.log(abc)
+
+    // 解构对象声明变量
+    // let {foo,bar}={foo:"123",bar:"456"}
+    // console.log(foo,bar)
+
+    // var obj={username:"zhangsan",age:20}
+    // var abc=obj.username;
+    // console.log(abc)
+
+    // 解构赋值
+    // let {length:len}="hello";
+    // console.log(len)
+    // var obj={username:"zhangsan",age:20}
+    // let {email:haha}=obj;
+    // console.log(haha)
+
+    // 函数的解构传参
+    // function plus([x,y]){
+    //     return x+y
+    // }   
+    // console.log(plus([1,2]))
+
+    // function plus([x,y=10]){
+    //     return x+y
+    // }   
+    // console.log(plus([1,20]))
+
+    // 使用解构赋值语法交换两个变量的值
+    // let x=1,y=2;
+    // [y,x]=[x,y];
+    // console.log(x,y)
+
+    // var username="zhangsan";
+    // var age=20;
+    // // var obj={username:username,age:age}
+    // var obj={username,age}
+    // console.log(obj)
+
+    // unicode码声明字符串
+    // var haha="\u0062";
+    // console.log(haha);
+    // var hehe="\u4e2d\u56fd"
+    // console.log(hehe)
+
+    // 遍历字符串
+    // var str="lezijie";
+    // for (let i of str){
+    //     console.log(i)
+    // }
+
+    // var username="zhangsan";
+    // var age=20;
+    //模板字符串 
+    // console.log(`姓名:${username},年龄:${age}`)
+
+    // var str='lezijie';
+    // console.log(str.indexOf("a"))
+    // 判断字符串是否包含参数字符串,不能传正则
+    // console.log(str.includes("z",2))
+    // split方法可以传正则表达式
+    // console.log(str.split(/i/))
+    //判断字符串的开头和结尾 
+    // console.log(str.startsWith("e",1))
+    // console.log(str.endsWith("e"))
+
+    // 将目标字符串重复指定次数,如果次数为小数则向下取整
+    // console.log(str.repeat(2.9))
+        
+    // console.log('x'.padStart(4,'h'))
+    // console.log('x'.padEnd(4,'haha'))
+
+    // var str=" zhang 	san "
+
+    // console.log(str)
+    // console.log("|"+str.trim()+"|")
+    // console.log("|"+str.trimStart()+"|")
+    // console.log("|"+str.trimEnd()+"|")
+    // console.log("|"+str.replace(/\s/g,"")+"|")
+    // replaceAll方法不能传正则
+    // console.log("|"+str.replaceAll(/\s/g,"")+"|")
+
+    // var arr1=[1,2,3]
+    // var arr2=[4,5,6]
+    // // 展开运算符
+    // console.log([...arr1,...arr2]);
+
+    // 展开运算符作为函数参数,可实现接收不固定个数的参数
+    // function plus(...param){
+    //     // console.log(x+y)
+    //     // console.log(arguments);
+    //     console.log(param)
+    // }
+    // plus(1,2,3,4,5,6)
+
+    // var arr=["zhangsan","lisi",3,4];
+
+    // var it=Array.from(arr.entries());
+    // console.log(it)
+
+    // console.log(arr.keys())
+    // arr.values();
+    // arr.entries()
+
+
+    // function abc(){
+    //     // console.log(arguments)
+    //     console.log(Array.from(arguments))
+    //     console.log(arguments)
+    // }
+    // abc(1,2,3)
+    // var arr=new Array(5);
+    // var arr=Array.of(5,10,45);
+    // arr[5]="6";
+    // arr.length=1;
+    // console.log(arr)
+
+
+    // var obj={};
+    // var arr=[];
+    // var username="zhangsan";
+    // var newArr=Array.of(obj,...arr,username)
+    // console.log(newArr)
+
+    // console.log(arr.__proto__)
+    // console.log([1, 2, 3, 4, 5].copyWithin(0,-1))
+    
+    // var arr=[1,2,3,4,5,6,7]
+    // var arr=["zhangsan","lisi","wangwu"]
+    
+    // var res=arr.find(function(item){
+    //     return item>3;
+    // })
+
+    // console.log(res)
+
+    // var res=arr.filter(function(item){
+    //     return item=="zhangsan"||item=="lisi"
+    // })
+
+    // console.log(res)
+    // var arr=[1,2,3,,,,,,,,,];
+    // console.log(arr.fill(7,-5,-2))
+    // console.log(arr)
+
+
+    // 箭头函数:
+    // 1、箭头是匿名函数 
+    // 2、当箭头函数参数只有一个的时候,函数的小括号可以省略
+    // 3、箭头函数没有arguments
+    // 4、箭头函数不是对象构造器,不能new
+    // 5、箭头函数的this一直指向上层this,如果上层无this,则指向window
+    // var fn1=function (param){
+        // console.log(arguments)
+        // console.log(param)
+    //     console.log(this)
+    // }
+
+    // var fn2=param=>{
+        // console.log(arguments)
+        // console.log(param)
+    //     console.log(this)
+    // }
+
+    // fn1(123);
+    // fn2(123);
+    // var obj=new fn2()
+    // console.log(obj instanceof Object)
+
+    // var obj={
+    //     say:function(){
+    //         console.log(this);
+    //     },
+    //     eat:()=>{
+    //         return ()=>{
+    //             console.log(this)
+    //         }
+    //     },
+    //     shut:function(){
+    //         console.log(this);
+    //         // return function(){
+    //         //     console.log(this)
+    //         // }
+    //         return ()=>{
+    //             console.log(this)
+    //         }
+
+    //     }
+    // }
+
+    // obj.say();
+    // obj.eat()();
+
+    // obj.shut.growl()
+    // obj.shut()();
+    
+    // obj.shut.growl().abc();
+    // var fn1=obj.say;
+    // var fn2=obj.eat;
+    // fn1();
+    // fn2();
+
+
+    // 对象的扩展
+
+    // var username="zhangsan",age=20;
+    // const add="plus";
+
+    // var obj={
+    //     username,
+    //     age,
+        // [add]:function(){
+        //     console.log("假发")
+        // }
+    //     [add+"haha"]:function(){
+    //         console.log("假发")
+    //     }
+    // }
+    // obj.plus();
+    // obj.plushaha();
+    // console.log(obj["username"])
+
+    // console.log(new Boolean(-0))
+    // console.log(Object.is)
+
+    // Set容器
+
+    // var set=new Set();
+    // set.add("123");
+    // set.add("456");
+    // set.add("789");
+    // set.add("123");
+
+    // console.log(set.__proto__)
+    // console.log(set.size)
+    // set.forEach(item=>{
+    //     console.log(item)
+    // })
+
+    // console.log(set.keys())
+
+
+    // Map容器
+
+    // var map=new Map()
+    // map.set("username","zhangsan");
+    // map.set("age","20");
+    // map.set(123,456);
+    // map.set(undefined,"zhangsan");
+    // map.set(null,"zhangsan");
+    // console.log(map)
+    // map.delete(undefined)
+    // console.log(map)
+    // console.log(map)
+    // console.log(map.get(undefined))
+
+    class Person{
+        // 构造函数外的属性,属于实例的私有属性,每个对象都持有一份
+        abc=123
+        constructor(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        say(){
+            console.log(123)
+        }
+    }
+
+    // Object.assign(Person.prototype,{
+    //     getName:function(){
+    //         return this.name;
+    //     },
+    //     getAge:function(){
+    //         return this.age;
+    //     }
+    // })
+    // Person.prototype.def="haha";
+
+    // console.log(Person)
+    // var p1=new Person("zhangsan",20,"abc@123.com")
+    // var p2=new Person();
+
+    // console.log(p1.getName())
+    // p1.abc=456;
+    // console.log(p2.abc)
+    // hasOwnProperty判断一个属性是对象自己的还是原型上的
+    // console.log(p1.hasOwnProperty("def"))
+    // console.log(p1.def)
+
+    // in方法判断属性存不存在这个对象上,无论是对象自己的还是原型上的
+    // console.log("def" in p1)
+
+    // p1.say()
+    // console.log(typeof Person)
+    // console.log(Person===Person.prototype.constructor)
+    // Person.prototype.shut=function(){}
+    // console.log(Person.prototype)
+
+    // 通过extends关键字实现类的继承
+    class Student extends Person{
+        constructor(name,age){
+            super(name,age);//调用父类的构造方法
+            this.city="shanghai";//扩展子类自己的属性
+        }
+    }
+
+    var stu=new Student("zhangsan",20);
+    console.log(stu)
+</script>
+<body>
+    
+</body>
+</html>

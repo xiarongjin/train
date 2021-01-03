@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>留言板</title>
+    <style type="text/css">
+        body {
+            font-size: 30px;
+            /* text-align: center; */
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        input {
+            height: 50px;
+            width: 500px;
+            font-size: 30px;
+            line-height: 30px;
+        }
+        
+        button {
+            width: auto;
+            height: 50px;
+            font-size: 30px;
+            line-height: 30px;
+        }
+        
+        div {
+            width: 700px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>留言板</h2>
+    <div>
+        <input id="msg"></input>
+        <button id="btn1">留言</button>
+        <button id="btn2" onclick="sum()">统计</button>
+    </div>
+    <div class="wrapper" style="background-color: #f8f8f8;min-height: 200px;height: 100%;width: 700px;color: #000;">
+        <ul id="words"></ul>
+    </div>
+</body>
+
+<script>
+    //ul是用来存储留言记录
+    var ul = document.getElementById('words');
+    var msg = document.getElementById('msg');
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+    var liCount = 0; //用来记录留言数目
+    btn1.onclick = function() {
+        if (!msg.value) {
+            alert('留言板里没有内容')
+        } else {
+            /*将留言板插入顶部的具体方法
+              1.判断ul中有无元素，没有则使用append方法，有则使用insertbefore
+              2.插入信息同时插入一个span标签，用来设置关闭按钮
+            */
+            var li = document.createElement('li');
+            li.innerHTML = msg.value;
+            if (liCount == 0) {
+                ul.appendChild(li);
+                liCount++;
+            } else {
+                ul.insertBefore(li, ul.childNodes[0]);
+                liCount++;
+            }
+            msg.value = '';
+        }
+        oSpans = document.getElementsByTagName('span');
+        for (var i = 0; i < oSpans.length; i++) {
+            oSpans[i].onclick = function() {
+                ul.removeChild(this.parentNode);
+                liCount--;
+            }
+        }
+    };
+
+    function sum() {
+        alert('一共有' + liCount + '条信息');
+    }
+</script>
+
+</html>

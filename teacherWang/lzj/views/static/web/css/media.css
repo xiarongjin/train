@@ -1,0 +1,8 @@
+@media (max-width:768px){
+    .course-list .container .row .caption h3{
+        font-size: 20px;
+    }
+    .course-list .container .row .caption a{
+        font-size: 12px;
+    }
+}

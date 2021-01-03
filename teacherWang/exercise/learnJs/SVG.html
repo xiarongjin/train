@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svg学习</title>
+    <style>
+        *{
+           margin: 0;
+           padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+       div{
+           /* background: #000; */
+           width: 1000px;
+           height: 1000px;
+       }
+    </style>
+</head>
+<body>
+        <svg width=500 height=500>
+            <g stroke=black fill=transparent stroke-width=2>
+                <path d="M 00 60 L 250 60"></path>
+            <path d="M 90,60 C 90,60 60,110 40,120 "></path>
+            <path d="M 40,120 L 40 300 "></path>
+            <path d="M 40,120 L 220 120 220 300 "></path>
+            <path d="M 40,180 L 200 180 "></path>
+            <path d="M 40,240 L 200 240 "></path>
+            <path d="M 00 300 L 250 300 "></path>
+            <path d="M 60,300 C 60,310 60,420 00,460 "></path>
+            <path d="M 61,330 L200,330 C 200,330 180,400 65,460"></path>
+            <path d="M 61,330 C 61,330 85,400 220,460 "></path>
+            </g>        
+        </svg>
+
+</body>
+</html>

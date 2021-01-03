@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成年测试</title>
+    <script>
+        function agechange(age) {
+            if (age < 18) {
+                document.write("未成年");
+            } else {
+                document.write("成年人")
+            }
+        }
+        agechange(18);
+
+        function getinput(t) {
+            console.log(t.value);
+
+        }
+    </script>
+    <style>
+        div {
+            height: 50px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="xiaoluo">
+        <span>小罗好帅哦</span>
+    </div>
+    <input type="text" onblur="getinput(this);" />
+    <input type="text" onblur="getinput(this);" />
+
+
+    <script>
+        var obj = document.getElementById("xiaoluo");
+        var b = obj.innerText;
+        console.log(b);
+        b = "小罗卡卡的"
+        obj.innerText = b;
+    </script>
+
+</body>
+
+</html>

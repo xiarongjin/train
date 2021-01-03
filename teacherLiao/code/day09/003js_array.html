@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数组的遍历</title>
+		<script type="text/javascript">
+			var names = ['皮思亮','李诗海','夏荣金','邓术荣'];
+			console.log("----------普通for循环------------");
+			/* for(var i=0; i<names.length; i++){
+				names[i] = "张三";
+			} */
+			
+			console.log("----------for-in------------");
+			/* for(var i in names){
+				names[i] = '张三';
+			} */
+			
+			console.log("----------forEach------------");
+			names.forEach(function(e, i){
+				// e = '张三';
+				names[i] = '张三';
+			});
+			
+			console.log(names);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

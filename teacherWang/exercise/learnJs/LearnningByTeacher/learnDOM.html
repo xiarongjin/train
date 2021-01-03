@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM学习</title>
+    <!-- <style>
+        body{
+            font-size: 32px;
+        }
+        button{
+            background: green;
+        }
+        button.active{
+            background: red;
+        }
+        div{
+            width: 300px;
+            height: 200px;
+            background: grey;
+            display: none;
+        }
+    </style> -->
+    <style>
+        /* li:hover{
+            background: tomato!important;
+        } */
+        html,body{
+            height: 100%;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        } */
+        ul{
+            list-style: none;
+        }
+        ul li{
+            float: left;
+            
+        }
+        ul li img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <a href="#"></a>
+    <a href="http://www.baidu.com"></a>
+    <a href="javascript:void(0)"></a>
+    <a href=""></a>
+
+
+    <img src="" alt="">
+    <img src="http://www.baidu.com/1.jpg" alt="">
+
+    <form action="" name="login">
+
+    </form>
+    <form action="" name="login">
+
+    </form>
+
+    <p id="p1" class="classP">哈哈哈</p>
+    <p class="classP">哈哈哈</p>
+    <p class="classP">哈哈哈</p>
+
+    <div id="section1">
+        <ul class="menu">
+            <li class="menu-item">
+                <a href=""></a>
+            </li>
+        </ul>
+    </div> -->
+
+
+    <!-- <ul>
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul> -->
+
+    <!-- <div id="div1">
+        hola,lezijie
+    </div> -->
+
+    <!-- <button class="active">1</button>
+    <button>2</button>
+    <button>3</button>
+
+    <div style="display: block;">aaa</div>
+    <div>bbb</div>
+    <div>ccc</div> -->
+
+    <!-- <ul id="list">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul> -->
+    <!-- <span>000</span>
+    <div class="div2">
+        <span>789</span>
+        <p></p>
+        123
+    </div>
+    <p>456</p> -->
+    <!-- <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1993309311,1816583273&fm=26&gp=0.jpg" alt=""> -->
+
+    <!-- <ul>
+        <li>搜狐<a href="javascript:void(0)">隐藏</a></li>
+        <li>雅虎<a href="javascript:void(0)">隐藏</a></li>
+        <li>百度<a href="javascript:void(0)">隐藏</a></li>
+        <li>腾讯<a href="javascript:void(0)">隐藏</a></li>
+        <li>华为<a href="javascript:void(0)">隐藏</a></li>
+    </ul>
+
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+
+    <button>全选</button>
+    <button>全不选</button>
+
+    <div class="clone">
+        <p>我是第一个p标签</p>
+        <p>我是第二个p标签</p>
+    </div>
+    <div class="clone">
+        <p>我是第一个p标签</p>
+        <p>我是第二个p标签</p>
+    </div>
+    <button id="cloneBtn">克隆节点</button> -->
+
+    <!-- 昵称:<input type="text" id="nickName"/><br/>
+    留言:<textarea rows="15" cols="30" name="message">
+
+    </textarea><br/>
+    <button class="submit">提交</button>
+
+    <br/>
+    留言板：<br/>
+    <ul>
+        
+    </ul> -->
+
+    <!-- <div class="box" 
+    style="position: absolute;background: red;
+    width: 100px;height: 100px;padding: 10px;
+    border: 10px solid #ccc;
+    margin: 10px;">
+        <h2>
+            我是标题
+            <a href="#">lezijie</a>
+        </h2>
+    </div>
+
+    <button id="btn">点击运动</button> -->
+    <!-- <img src="images/left-arrow.png" alt="">
+    <div class="scrollPic" style="position: relative;">
+        <ul style="position: absolute;">
+            <li><img src="images/img1.gif"/></li>
+            <li><img src="images/img2.gif"/></li>
+            <li><img src="images/img3.gif"/></li>
+            <li><img src="images/img4.gif"/></li>
+        </ul>
+    </div>
+    <img src="images/right-arrow.png" alt=""> -->
+
+    <select name="" id="year">
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+    </select>
+    <select name="" id="month">
+        <option value="01">01</option>
+        <option value="02">02</option>
+        <option value="03">03</option>
+        <option value="04">04</option>
+        <option value="05">05</option>
+        <option value="06">06</option>
+        <option value="07">07</option>
+        <option value="08">08</option>
+        <option value="09">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+    <table id="calender" border="1" cellspacing=0>
+        <tr>
+            <td>周一</td>
+            <td>周二</td>
+            <td>周三</td>
+            <td>周四</td>
+            <td>周五</td>
+            <td>周六</td>
+            <td>周日</td>
+        </tr>
+    </table>
+</body>
+</html>
+<script src="js/learnDOM.js"></script>

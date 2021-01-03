@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+
+/* 头部 */
+
+header {
+    width: 1200px;
+    height: 120px;
+    margin: 0 auto;
+    position: relative;
+    /* background-color: red; */
+}
+
+header .logo {
+    position: relative;
+}
+
+header .logo a {
+    position: absolute;
+    top: 30px;
+}
+
+header .menu {
+    margin-left: 302px;
+    font-size: 18px;
+}
+
+header .menu li {
+    float: left;
+    width: 142px;
+    height: 120px;
+    /* line-height: 120px; */
+    text-align: center;
+    margin-left: 18px;
+}
+
+header .menu li a {
+    color: #333;
+    display: block;
+    padding-top: 73px;
+    height: 47px;
+    position: relative;
+}
+
+
+/* 伪元素是内联标签 */
+
+header .menu li a::before,
+header .menu li a::after {
+    content: "";
+    display: block;
+    width: 0px;
+    height: 5px;
+    background-color: #f73856;
+    position: absolute;
+    bottom: 0;
+    transition: all 0.5s;
+}
+
+header .menu li a::before {
+    left: 50%;
+}
+
+header .menu li a::after {
+    right: 50%;
+}
+
+header .menu li a:hover::before {
+    width: 40%;
+}
+
+header .menu li a:hover::after {
+    width: 40%;
+}
+
+header .menu .current a {
+    color: white;
+    background-image: url(../images/currentMenu.png);
+}
+
+header .contactway {
+    /* width: 240px; */
+    height: 81px;
+    position: absolute;
+    top: 15px;
+    right: -200px;
+    /* background-color: red; */
+}
+
+header .contactway .phone {
+    height: 30px;
+}
+
+header .contactway .phone .iconimg {
+    /* width: 28px;
+    height: 30px; */
+    margin-right: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url(../images/icon-phone.png) no-repeat center center;
+    width: 28px;
+    height: 30px;
+    line-height: 30px;
+}
+
+header .contactway .phone span {
+    color: #333333;
+    font-size: 28px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 30px;
+    /* margin-left: 16px; */
+}
+
+header .contactway .entry {
+    margin-top: 15px;
+}
+
+header .contactway .entry a {
+    width: 110px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    /* margin-top: 15px; */
+    /* margin-left: 15px; */
+    /* margin: 10px 10px; */
+    color: #fff;
+}
+
+header .contactway .entry a:first-child {
+    background-color: #3d3d3d;
+}
+
+header .contactway .entry a:last-child {
+    background-color: #f84d7d;
+    margin-left: 10px;
+}

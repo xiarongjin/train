@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>三种遍历方式的特点</title>
+		<script type="text/javascript">
+			
+			var arr = [];
+			arr[0]  = "A";
+			arr["1"] = "B";
+			arr[-1] = "C";
+			arr["x"] = "D";
+			console.log(arr);
+			/* 普通for循环:正常下标的元素 */
+			for(var i=0; i<arr.length; i++){
+				console.log(arr[i]);
+			}
+			
+			console.log("-------------------------");
+			/*for-in : 正常和非正常*/
+			for(var idx in arr){
+				console.log(arr[idx] + "-->" + idx);
+			}
+			
+			console.log("-------------------------");
+			/* 正常下标 */
+			arr.forEach(function(e, i){
+				console.log(e + "-->" + i);
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

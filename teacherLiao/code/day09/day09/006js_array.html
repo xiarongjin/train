@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数组常用操作</title>
+		<script type="text/javascript">
+			var arr = [];
+			arr[0] = "A";
+			arr.push("B");
+			arr.push("C");  // 将元素添加到最后一个位置
+			arr.unshift("D");  // 将元素添加到第一个位置
+			
+			//arr.length = arr.length-1;
+			arr.pop();// 删除最后一个元素
+			arr.shift(); // 删除第一个元素
+			
+			arr.reverse(); // 反转数组
+			console.log(arr);
+			
+			var str = arr.join();  // 将数组中的内容填充到字符串中，给你一个最后的字符串
+			console.log(str);
+			console.log(arr);
+			console.log("----------------------");			
+			var array1 = [1,2,3,4];
+			
+			// 删除数组的最后一个元素， 在函数中对数组进行了修改
+			function changeArray(a){
+				a.length = a.length-1;
+			}
+			changeArray(array1);
+			console.log(array1);
+			
+			// 使用数组中的内容填充字符串   不改变数组的内容，只是使用每一个元素作为字符串的填充内容
+			function getString(a){
+				var str = "";
+				for(var idx in a){
+					str += a[idx];
+					if(idx != a.length-1){
+						str += ",";
+					}
+				}
+				
+				return str;
+			}
+			
+			var myStr = getString(array1);
+			console.log(myStr);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

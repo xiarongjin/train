@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数组的遍历</title>
+		<script type="text/javascript">
+			// 创建数组
+			var names = ['皮思亮','李诗海','夏荣金','邓术荣'];
+			console.log("----------普通for循环------------")
+			
+			// 普通for循环遍历
+			for(var i=0; i<names.length; i++){
+				console.log(names[i] + "---"  + i);
+			}
+			
+			console.log("-------------for-in 遍历---------------")
+			/*
+			 for(var idx in names){
+				 names[idx]
+			 }
+			*/
+		   // idx由系统将 names这个数组的下标依次进行填充
+		   for(var idx in names){
+			   console.log(names[idx] + "---" + idx);
+		   }
+			
+		console.log("-------------forEach---------------");
+		// 第一个参数：数组的每一个元素
+		// 第二个参数：当前元素的下标
+		names.forEach(function(e,i){
+			console.log(e + "---" + i);
+		})
+		
+		
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

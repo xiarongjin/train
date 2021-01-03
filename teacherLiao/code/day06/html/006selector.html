@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>元素选择器</title>
+		<style type="text/css">
+			#colorddiv,p,.bcolor{
+				font-size: 30px;
+				color:lightpink;
+			}
+		</style>
+	</head>
+	<body>
+		<div>div</div>
+		<span class="bcolor">span</span> <!--30px -->
+		<div id="colorddiv">divdiv<span>span</span>div</div>  <!--30px -->
+		<span>span</span>
+		<div class="bcolor"><span>span</span>div</div> <!-- 30px-->
+		<p>p</p> <!-- 30px-->
+	</body>
+</html>

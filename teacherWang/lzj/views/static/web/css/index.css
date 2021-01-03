@@ -1,0 +1,69 @@
+body{
+    background: #f3f7fa;
+}
+nav{
+    border-radius: 0!important;
+}
+.navbar{
+    margin-bottom: 0;
+}
+.navbar-brand{
+    /* height: 50px; */
+    margin: 0;
+    padding: 0;
+}
+.navbar-nav{
+    margin-left: 20px;
+}
+.btn-fr{
+    float: right;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+.slogan{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: red;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.profession{
+    text-align: center;
+    font-weight: bold;
+    color: #121051;
+}
+.glyphicon-user{
+    color: red;
+}
+.obtain{
+    background: white;
+}
+.obtain .forNewPeople{
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+}
+.obtain .btn-default{
+    width: 100%;
+    height: 44px;
+    border-radius: 44px;
+    outline: none;
+}
+.obtain .btn-default:hover{
+    background: linear-gradient(to right,#4082ff,#0ea8ff);
+    color: white;
+    outline: none;
+}
+.course-detail{
+    padding-top: 40px;
+    background: white;
+}
+.course-detail .content{
+    background: #f7fafb;
+    border: 1px solid #e2e2ee;
+    border-radius: 5px;
+    padding: 25px 30px;
+}

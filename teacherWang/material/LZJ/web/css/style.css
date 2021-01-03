@@ -1,0 +1,44 @@
+		.navbar-brand {
+				height: 70px;
+				padding: 0;
+			}
+			#header a {
+				color: #fff;
+			}
+			
+			#header a:hover {
+				color: green;
+			}
+			/*手机*/
+			
+			@media only screen and (max-width:768px) {
+				.login {
+					position: absolute;
+					top: 0;
+					left: 50%;
+				}
+				.login li {
+					float: left;
+				}
+			}
+			
+/*lunbo*/
+.banner{
+	background: url(../image/bannerbg.png) no-repeat;
+/*	height:500px;*/
+	margin-top:70px;
+	padding:40px 0;
+}	
+.info{
+	background: #fff;
+	padding:20px;
+	
+}
+.text p{
+	font-size: 16px;
+	line-height: 30px;;
+}		
+.box{
+	border:1px solid #e2e2e2;
+	padding:10px;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>this简单认识</title>
+		<script type="text/javascript">
+			
+			// t 形参，  this实参
+			function testThis(t){
+				console.log(t.value);
+			}
+			
+		
+			
+		</script>
+	</head>
+	<body>
+		<!-- this用的那个标签  我就代表谁 -->
+		<input type="text" onblur="testThis(this);" />
+		<input type="text" onblur="testThis(this);" />
+	</body>
+</html>

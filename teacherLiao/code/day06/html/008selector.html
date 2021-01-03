@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>后代选择器</title>
+		<style type="text/css">
+			div~div{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<div>divdiv<span>span</span>div</div>
+		<div class="div1">
+			<div>divdiv<span>span</span>divdiv</div>
+		</div>
+		<p>p标签</p>
+		<div class="div1">
+			<p>p p<span class="span1">span</span> p </p>
+		</div>
+		<span>span<span>span</span>span</span>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>json</title>
+		<script type="text/javascript">
+			// 键值对，键值对
+			// 键:值，键:值
+			// key:value, key:value
+			// json字符串 -> 满足json格式的字符串
+			var jsonStr = "names:zs, age:18";
+			
+			// json对象 -> 就是js对象， 满足json格式的
+			var infoObj = {
+				name:"zs",
+				age:18,
+				sayHello:function(){
+					console.log("hello");
+				}
+			};
+			
+			console.log(jsonStr.length);
+			console.log(infoObj.name);
+			
+			jsonStr.toUpperCase();
+			infoObj.sayHello();
+			
+			var obj = new Object();
+			
+			obj.text = "abc";
+			obj.age = 18;
+			obj.gender = true;
+			console.log(obj);
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
