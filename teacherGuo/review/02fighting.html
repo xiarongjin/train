@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js碰撞检测</title>
+    <style>
+        #finger{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            cursor: pointer;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: #666;
+            margin:200px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="finger" onmousedown="getmouse()" onmouseup="clearmouse()"></div>
+    <div id="box"></div>
+</body>
+<script>
+    var finger=document.getElementById('finger');
+    var box=document.getElementById('box');
+
+    function getmouse() {
+        document.addEventListener('mousemove',onmouse) 
+    }
+
+    function fight(x,y) {
+        // console.log(x,y);
+        if (box.offsetLeft<x&&x<box.offsetLeft+box.offsetWidth+finger.offsetWidth&&y>box.offsetTop&&y<box.offsetTop+box.offsetWidth+finger.offsetWidth) {
+            box.style.backgroundColor='orange';
+        }else{
+            box.style.backgroundColor='#666';
+        }
+    }
+    function onmouse() {
+        // console.log(event.x,event.y);
+        console.log(box.offsetLeft,box.offsetTop);
+        finger.style.top=event.y-25+'px';
+        finger.style.left=event.x-25+'px';
+        fight(event.x+25,event.y+25)
+        }
+    function clearmouse() {
+        document.removeEventListener("mousemove",onmouse)
+    } 
+
+
+</script>
+</html>

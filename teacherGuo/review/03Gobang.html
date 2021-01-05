@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五子棋</title>
+    <style>
+        #boardBox {
+            margin: 10px auto;
+            background: green;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <input type="text" value="" style="width: 50px;" name="" id="row" onchange="getVal(value)" placeholder="行数" />
+        <button onclick="restart()">重新开始</button>
+    </div>
+    <div id="boardBox">
+        <canvas id="board" onclick="showPiece()"></canvas>
+    </div>
+</body>
+<script>
+    var canvas = document.getElementById('board');
+    var boardBox = document.getElementById('boardBox');
+    var ctx = canvas.getContext('2d');
+    var isWhite = true;
+    var row = 6;
+    var historyStep;
+
+    function drawBoard(n) {
+        n=n*1;
+        historyStep = new Array(n).fill(new Array(n).fill(null))
+        canvas.setAttribute('width', 40 * (n * 1 + 1) + 'px')
+        canvas.setAttribute('height', 40 * (n * 1 + 1) + 'px')
+        boardBox.style.height = boardBox.style.width = 40 * (n * 1 + 1) + 'px';
+        ctx.beginPath();
+        ctx.strokeStyle = "#fff";
+        for (let i = 0; i < n; i++) {
+            let x = 40;
+            let x1 = 40 * (n)
+            let xn = 40 * (i + 1)
+            ctx.moveTo(x, xn);
+            ctx.lineTo(x1, xn);
+            ctx.moveTo(xn, x);
+            ctx.lineTo(xn, x1);
+        }
+        ctx.stroke();
+    }
+
+
+    function rowWin(arr) {
+        let count = 0;
+        let current = 1;
+        arr.forEach(item => {
+            if (item == null) {} else {
+                if (item == current) {
+                    count++;
+                    if (count == 5) {
+                        setTimeout(() => alert(item ? '白方胜' : '黑方胜'), 100);
+                        canvas.removeAttribute('onclick')
+                    }
+                } else {
+                    count = 1;
+                }
+            }
+            current = item;
+        });
+    }
+
+    function MapDiagonal(arr) {
+        let arrMapDiagonal = new Map();
+
+        for (let i in arr) {
+            for (let j in arr[i]) {
+                if (arrMapDiagonal.has(i * 1 + j * 1)) {
+                    let List = arrMapDiagonal.get(i * 1 + j * 1)
+                    List.push(arr[i][j])
+                    arrMapDiagonal.set(i * 1 + j * 1, List)
+                } else {
+                    let List = new Array();
+                    List.push(arr[i][j])
+                    arrMapDiagonal.set(i * 1 + j * 1, List)
+                }
+            }
+        }
+        return arrMapDiagonal
+    }
+
+
+    function winner(arr) {
+        let isPingju = true;
+        for (let index = 0; index < arr.length; index++) {
+            const element = arr[index];
+            if (element.some(item => item == null)) {
+                arr.forEach(arr => rowWin(arr))
+                let arrMapcol = arr[0].map((col, i) => (arr.map(row => row[i])));
+                arrMapcol.forEach(arr => rowWin(arr))
+                let arrMapDiagonal = MapDiagonal(arr);
+                arrMapDiagonal.forEach(arr => rowWin(arr))
+                let arrRe = arr[0].map((col, i) => (arr.map(row => row[i])))
+                arrRe = arr[0].map((col, i) => (arrRe.map(row => row[i])))
+                arrRe.forEach(arr => arr.reverse());
+                arrRe = MapDiagonal(arrRe);
+                arrRe.forEach(arr => rowWin(arr));
+                return
+            }
+        }
+        setTimeout(() => alert('平局'), 100);
+    }
+
+    function drawPiece(x, y) {
+        if (historyStep[x - 1][y - 1] != null) {
+            return
+        }
+        historyStep[x - 1] = historyStep[x - 1].map((item, i) => {
+            if (i == y - 1) {
+                return isWhite ? 1 : 0
+            }
+            return item
+        });
+        ctx.beginPath()
+        ctx.fillStyle = isWhite ? '#fff' : '#000';
+        ctx.arc(x * 40, y * 40, 16, 0, Math.PI * 2);
+        ctx.fill();
+        isWhite = !isWhite;
+        winner(historyStep)
+    }
+    drawBoard(6)
+
+    function getVal(val) {
+        if (6 <= val && val <= 15) {
+            row = val;
+            drawBoard(val)
+        } else if (val > 15) {
+            alert('超出15行按15行处理');
+            drawBoard(15)
+            row = 15;
+        } else {
+            alert('小于6行或输入不合规字符按6行处理');
+            drawBoard(6)
+        }
+    }
+
+    function showPiece(params) {
+        if (0 < Math.round(event.offsetX / 40) && Math.round(event.offsetX / 40) <= row && 0 < Math.round(event
+                .offsetY / 40) && Math.round(event.offsetY / 40) <= row) {
+            drawPiece(Math.round(event.offsetX / 40), Math.round(event.offsetY / 40))
+        }
+
+    }
+
+    function restart() {
+        drawBoard(row)
+        isWhite = true;
+        canvas.addEventListener('click', showPiece)
+    }
+</script>
+
+</html>
