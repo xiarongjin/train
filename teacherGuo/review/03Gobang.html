@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +13,13 @@
         }
     </style>
 </head>
-
 <body>
     <div style="text-align: center;">
         <input type="text" value="" style="width: 50px;" name="" id="row" onchange="getVal(value)" placeholder="行数" />
         <button onclick="restart()">重新开始</button>
     </div>
     <div id="boardBox">
-        <canvas id="board" onclick="showPiece()"></canvas>
+        <canvas id="board"></canvas>
     </div>
 </body>
 <script>
@@ -31,8 +29,8 @@
     var isWhite = true;
     var row = 6;
     var historyStep;
-
     function drawBoard(n) {
+        canvas.addEventListener('click', showPiece)
         n=n*1;
         historyStep = new Array(n).fill(new Array(n).fill(null))
         canvas.setAttribute('width', 40 * (n * 1 + 1) + 'px')
@@ -51,8 +49,6 @@
         }
         ctx.stroke();
     }
-
-
     function rowWin(arr) {
         let count = 0;
         let current = 1;
@@ -61,8 +57,8 @@
                 if (item == current) {
                     count++;
                     if (count == 5) {
-                        setTimeout(() => alert(item ? '白方胜' : '黑方胜'), 100);
-                        canvas.removeAttribute('onclick')
+                        canvas.removeEventListener('click', showPiece)
+                        setTimeout(() => alert(item ? '白方胜' : '黑方胜'), 100);   
                     }
                 } else {
                     count = 1;
@@ -93,6 +89,7 @@
 
 
     function winner(arr) {
+       
         let isPingju = true;
         for (let index = 0; index < arr.length; index++) {
             const element = arr[index];
@@ -157,7 +154,6 @@
     function restart() {
         drawBoard(row)
         isWhite = true;
-        canvas.addEventListener('click', showPiece)
     }
 </script>
 

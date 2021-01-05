@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞机大战</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <div id="welcome">
+        <button onclick="startgame()">开始游戏</button>
+    </div>
+</body>
+<style>
+    #welcome {
+        width: 320px;
+        height: 568px;
+        margin: auto;
+        display: block;
+        position: relative;
+        background: url(./img/开始背景.png);
+        /* border: 1px solid; */
+    }
+
+    #welcome button {
+        position: absolute;
+        width: 120px;
+        height: 40px;
+        font-size: 20px;
+        background-color: transparent;
+        outline-style: none;
+        border: none;
+        border-radius: 20px;
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .3);
+        color: #8f9293;
+        left: 100px;
+        top: 400px;
+        cursor: pointer;
+    }
+
+    #welcome button:active {
+        box-shadow: none;
+    }
+
+    #box {
+        width: 320px;
+        height: 568px;
+        margin: auto;
+        display: none;
+        position: relative;
+        background: url(./img/background_1.png);
+        /* border: 1px solid; */
+    }
+
+    #box img {
+        position: absolute;
+        left: 100px;
+        top: 300px;
+        cursor: pointer;
+    }
+</style>
+<script>
+    var box = document.getElementById('box');
+    var welcome = document.getElementById('welcome');
+
+    var posY = 0;
+
+   
+    function Plane(src, x, y) {
+        this.src = src;
+        this.x = x;
+        this.y = y;
+        this.imgNode = null;
+        this.creatplane = function () {
+            this.imgNode = document.createElement('img');
+            this.imgNode.src = this.src;
+            this.imgNode.style.left = x + 'px';
+            this.imgNode.style.top = y + 'px';
+            box.appendChild(this.imgNode)
+        };
+        this.creatplane();
+    }
+    function Self() {
+        Plane.call(this, "./img/我的飞机.gif", 127, 488)
+    }
+    var my = new Self();
+    var myPlane=my.imgNode
+    function getOffset(DOMnode){
+        return [DOMnode.offsetWidth,DOMnode.offsetHeight,DOMnode.offsetLeft,DOMnode.offsetTop]
+    }
+    function mouseCom(mouse) {
+        const boxOffset=getOffset(box);
+        const myPlaneOffset=getOffset(myPlane);
+        return mouse.map((item,i)=>{
+           item=item-boxOffset[i+2]
+            if (item<myPlaneOffset[i]/2) {
+                return myPlaneOffset[i]/2
+            }else if(item>boxOffset[i]-myPlaneOffset[i]/2){
+               return boxOffset[i]-myPlaneOffset[i]/2;
+            }else{
+                return item
+            }
+        });
+    }
+
+    function planeFollow(mouse) {
+        myPlane.style.left=mouse[0]-myPlane.offsetWidth/2+'px';
+        myPlane.style.top=mouse[1]-myPlane.offsetHeight/2+'px';
+    }
+
+    function mousemove(){
+        let mouse=[event.x,event.y]
+        console.log(mouse);
+        planeFollow(mouseCom(mouse));
+    }
+   
+    function startgame() {
+        box.style.display = 'block';
+        welcome.style.display = 'none';
+        window.addEventListener('mousemove',mousemove)
+        setInterval(
+            function () {
+                posY++;
+                posY > 568 && (posY = 0);
+                box.style.backgroundPositionY = posY + 'px';
+            }, 20);
+    }
+
+   
+</script>
+
+</html>
