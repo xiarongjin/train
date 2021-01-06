@@ -10,7 +10,7 @@
 <body>
     <div id="box"></div>
     <div id="welcome">
-        <button onclick="startgame()">开始游戏</button>
+        <button onclick="restart()">开始游戏</button>
     </div>
 </body>
 <style>
@@ -64,9 +64,6 @@
 <script>
     var box = document.getElementById('box');
     var welcome = document.getElementById('welcome');
-
-    var posY = 0;
-
    
     function Plane(src, x, y) {
         this.src = src;
@@ -112,13 +109,121 @@
 
     function mousemove(){
         let mouse=[event.x,event.y]
-        console.log(mouse);
         planeFollow(mouseCom(mouse));
     }
    
-    function startgame() {
+    
+
+   function Enemy(src,x,y) {
+       Plane.call(this,src,x,y);
+       this.isplaneDie=false;
+       this.planeMove=function(){
+        this.imgNode.style.top=this.imgNode.offsetTop+3+'px';
+       }
+   }
+   function Bullet(x,y,width,height,src) {
+    this.bulletX = x;
+	this.bulletY = y;
+	this.bulletWidth = width;
+    this.bulletHeight = height;
+    this.imgNode=null;
+    this.isBulletDie=false;
+    this.init=function(){
+        this.imgNode=document.createElement('img');
+        this.imgNode.src=src;
+        this.imgNode.style.left=this.bulletX+'px';
+        this.imgNode.style.top = this.bulletY+'px';
+
+        box.appendChild(this.imgNode);
+    }
+    this.init();
+    this.bulletMovew=function(){
+        this.imgNode.style.top=this.imgNode.offsetTop-5+'px';
+       }
+}
+
+function AddBullet(x,y){
+    Bullet.call(this,x,y,6,14,'./img/bullet1.png');
+}
+
+
+   function random(min,max){ //1  5
+	return Math.floor(Math.random()*(max-min)+min);
+}
+
+
+   var createTime=0;
+   var enemyType=0;
+
+    var enemyArr=new Array();
+    var bulletArr=new Array();
+
+
+   function initEnemy() {
+    createTime++;
+    if (createTime==50) {
+        enemyType++;
+         if (enemyType%20==0) {
+        var maxPlane = new Enemy('./img/enemy2_fly_1.png',random(0,230),random(50,150));
+            enemyArr.push(maxPlane);
+            enemyType=0;
+        }else{
+            var smallPlane= new Enemy('./img/enemy1_fly_1.png',random(0,290),random(40,120));
+           enemyArr.push(smallPlane)
+        }
+        if (enemyType%5==0) {
+            var midPlane= new Enemy('./img/enemy3_fly_1.png',random(0,280),random(40,120));
+           enemyArr.push(midPlane)
+        }
+        createTime=0;
+    }
+
+    
+    if (createTime%5==0) {
+        let myPlaneX=myPlane.offsetLeft;
+        let myPlaneY=myPlane.offsetTop
+    var  midbullet =  new AddBullet(myPlaneX+30,myPlaneY-10)
+    var  leftbullet =  new AddBullet(myPlaneX+8,myPlaneY+8)
+    var  rightbullet =  new AddBullet(myPlaneX+52,myPlaneY+8)
+    bulletArr.push(midbullet)
+    bulletArr.push(leftbullet)
+    bulletArr.push(rightbullet)
+    }
+
+  var enemysLength = enemyArr.length;
+   for(var i = 0;i<enemysLength;i++){
+    if (!enemyArr[i].isplaneDie) {
+        enemyArr[i].planeMove();
+    }
+    console.log(enemyArr[i].imgNode.offsetTop,i);
+    if (enemyArr[i].imgNode.offsetTop+enemyArr[i].imgNode.offsetHeight>568) {
+        box.removeChild(enemyArr[i].imgNode);
+        enemyArr.splice(i,1);
+        enemysLength--;
+    }
+
+   }
+   var bulletArrLength = bulletArr.length;
+   for(var i = 0;i<bulletArrLength;i++){
+    if (!bulletArr[i].isBulletDie) {
+        bulletArr[i].bulletMovew();
+    }
+    console.log(bulletArr[i].imgNode.offsetTop,i);
+    if (bulletArr[i].imgNode.offsetTop-bulletArr[i].imgNode.offsetHeight/2<=0) {
+        box.removeChild(bulletArr[i].imgNode);
+        bulletArr.splice(i,1);
+        bulletArrLength--;
+    }
+
+   }
+
+
+}
+   
+function startgame() {
         box.style.display = 'block';
         welcome.style.display = 'none';
+        var posY = 0;
         window.addEventListener('mousemove',mousemove)
         setInterval(
             function () {
@@ -126,9 +231,15 @@
                 posY > 568 && (posY = 0);
                 box.style.backgroundPositionY = posY + 'px';
             }, 20);
-    }
+    
+            setInterval(initEnemy, 10);
+        }
+  
+   function restart(params) {
+    startgame();
+   } 
 
-   
+
+
 </script>
-
 </html>
