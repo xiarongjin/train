@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>瀑布流</title>
+    <style>
+        
+        *{
+                margin: 0;
+                padding: 0;
+            }
+            .box{
+                width: 90%;
+                margin: 0 auto;
+            }
+            .box ul{
+                width: 100%;
+                position: relative;
+            }
+            .box ul li{
+                position: absolute;
+                list-style: none;
+                padding: 1%;
+                margin: 1%;
+                width: 28%;
+            }
+            li img{
+                display: block;
+                width: 100%;
+            }
+        
+    </style>
+</head>
+<body>
+ <div class="box">
+     <ul>
+
+     </ul>
+ </div>
+</body>
+<script src="./Jquery.js"></script>
+<script>
+
+$(function(){
+            var imgArr = [];//存入所有图片路径
+            for (var i = 1; i <= 20; i++) {
+                imgArr.push("./img/" + i + ".jpg")
+            }
+            console.log(imgArr);
+            //产生li并放入img标签
+            for (var i = 0; i < imgArr.length; i++) {
+                var li = $(`<li><img src=${imgArr[i]} ></li>`);
+                $("ul").append(li);
+            }
+            
+            setTimeout(waterFall,500);
+            $(window).resize(function(){
+                console.log('resize');
+                waterFall();
+            })
+            
+            function waterFall(){
+                var liArr = $('.box ul li');
+                var cols = 3;
+                var colArr = [];//存放每一列的高度
+                var screenWidth = $(window).innerWidth();
+                if (screenWidth < 600) {
+                    cols = 2;
+                    liArr.css('width','42%');
+                }
+                else{
+                    cols = 3;
+                    liArr.css('width','28%');
+                }
+                
+                for (var i = 0; i < liArr.length; i++) {
+                    var li = liArr[i];
+                    //获取li占宽
+                    var liWidth = $(li).outerWidth(true);
+                    if (i < cols) {//放第一行的2个或者3个
+                        $(li).css({
+                            top:0,
+                            left:i * liWidth,
+                        });
+                        //获取每一列的高度
+                        colArr[i] = $(li).outerHeight(true);
+                        //colArr[0],[1],[2]
+                    }
+                    else{//放 除了第一行以外的li
+                        //每放置一个li，必须先找所有列的最小高度以及哪一列最小
+                        var minHeight = Math.min(...colArr);
+                        var mincol = colArr.findIndex(item=>item==minHeight);
+                        console.log(mincol,minHeight);
+                        $(li).css({
+                            top:minHeight,
+                            left:mincol * liWidth,
+                        });
+                        //更新当前列的高度
+                        colArr[mincol] = minHeight + $(li).outerHeight(true);
+                    }   
+                }
+            }
+        })
+    
+</script>
+</html>
