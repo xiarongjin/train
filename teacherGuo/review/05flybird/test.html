@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试</title>
+</head>
+<body>
+    <div id="box">
+        <canvas id="can" width="800px" height="650px"></canvas>
+    </div>
+</body>
+<script>
+    var can = document.getElementById('can');
+    var ctx = can.getContext('2d');
+
+    var imgEleUp=new Image();
+    imgEleUp.src='./img/pipe_up.png'
+    var imgEleDown=new Image();
+    imgEleDown.src='./img/pipe_down.png';
+
+    var moveX=0;
+    var a=20,b=480-a;
+    function drawBar() {
+                moveX++;
+                if (moveX==1) {
+                a=20+30*Math.round(Math.random()*10);
+                }
+                    ctx.clearRect(0,0,can.width,can.height);
+
+                    ctx.drawImage(imgEleUp,0,0,52,a+50,320-moveX,0,52,a+50);
+
+                    ctx.drawImage(imgEleDown,0,a-50,52,b,320-moveX,a+150,52,b);
+                    if (moveX==300) {
+                    moveX=0
+                }
+            }
+
+   
+    
+    imgEleUp.onload=function(){
+        imgEleDown.onload=function(){
+           
+           setInterval(drawBar, 10);
+       
+    }
+    }
+  
+    
+  
+ 
+
+
+ 
+    
+
+
+   
+</script>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小鸟游戏</title>
+    <style>
+        #box {
+            width: 288px;
+            height: 512px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <canvas id="can" width="288" height="512"></canvas>
+    </div>
+</body>
+<script>
+    let can = document.getElementById('can');
+    let ctx = can.getContext('2d');
+
+
+
+
+
+    function flyGame(obj) {
+        // section1
+        let section = 1;
+
+        let section1 = {
+            titleDown: 0,
+            tutorialOpacity: 1,
+            tutorialOpacitySpeed: 0.1,
+            buttonType: 1,
+            drawSection1:function () {
+                if (section1.tutorialOpacity < 0.3 || section1.tutorialOpacity > 0.9) {
+                    section1.tutorialOpacitySpeed = -section1.tutorialOpacitySpeed;
+                }
+                section1.tutorialOpacity +=section1.tutorialOpacitySpeed;
+                if (section1.titleDown < 130) {
+                    section1.titleDown += 3+ section1.titleDown/10;
+                }
+                ctx.drawImage(obj.bg_day, 0, 0)
+
+
+                ctx.drawImage(obj.title, 55, -50 + section1.titleDown)
+
+                ctx.save();
+                ctx.globalAlpha = section1.tutorialOpacity;
+                ctx.drawImage(obj.tutorial, 87, 200)
+                ctx.restore();
+                if (section1.buttonType==1) {
+                    ctx.drawImage(obj.button_play, 0, 0, 116, 70, 86, 350, 116, 70)
+                } else {
+                    ctx.drawImage(obj.button_play, 0, 70, 116, 70, 86, 350, 116, 70)
+                }
+            }
+        }
+        
+
+        let section2={
+            moveX:0,
+            moveBX:0,
+            isFalse:true,
+            isDown:true,
+            birdSpeed:10,
+            birdY:232,
+            upTime:0,
+            barH:parseInt(Math.random()*20+30),
+            drawSection2:function () {
+                
+                if (section2.isFalse) {
+                    section2.isFalse=false;
+                    can.onclick=function(){
+                        section2.isDown=false; 
+                        section2.upTime=0;
+                        section2.birdSpeed=20
+                    }
+                }
+                
+
+
+                if (section2.moveX>288) {
+                    section2.moveX=0;
+                }  
+                if (section2.moveBX>340) {
+                    section2.moveBX=0;
+                    section2.barH=parseInt(Math.random()*200+30)
+                }
+                    
+                ctx.drawImage(obj.bg_day, -section2.moveX, 0); 
+                ctx.drawImage(obj.bg_day, 288-section2.moveX, 0); 
+
+                ctx.drawImage(obj.land,-section2.moveX, 400);
+                ctx.drawImage(obj.land,288-section2.moveX,400);
+
+
+
+                ctx.drawImage(obj.bird0_0,120,section2.birdY);
+
+
+
+                ctx.drawImage(obj.pipe_down,0,320-section2.barH,52,section2.barH,288-section2.moveBX,0,52,section2.barH);
+                ctx.drawImage(obj.pipe_up,0,0,52,400-section2.barH-150,288-section2.moveBX,section2.barH+150,52,400-section2.barH-150);
+           
+                if (section2.birdY<360) {
+                   
+                    section2.moveX+=2
+                    section2.moveBX+=2
+                    if (section2.isDown) {
+                        section2.birdSpeed++
+                        section2.birdY+=section2.birdSpeed/6;
+                    }else{
+                        // section2.birdY--;
+                        section2.upTime++
+                        section2.birdSpeed--
+                        section2.birdY-=section2.birdSpeed/2;
+                        if (section2.upTime>20) {
+                            section2.isDown=true;
+                            section2.birdSpeed=0
+                        }
+                    }
+                }
+                
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+        function playGame() {
+            ctx.clearRect(0,0,can.width,can.height);
+            if (section == 1) {
+                section1.drawSection1();
+            }else if (section==2) {
+                section2.drawSection2()
+            }
+        }
+
+
+        var timer=setInterval(playGame,20);
+      
+                 can.onclick=function () {
+                    section1.buttonType=2;
+                    console.log('开始游戏');
+                    setTimeout(function () {
+                        section=2
+                    },25)
+                    }
+                }
+    
+
+
+
+
+
+
+    (function () {
+        //图片预加载
+        let imgArr = [{
+                name: "bg_day",
+                url: "./img/bg_day.png"
+            },
+            {
+                name: "bird0_0",
+                url: "./img/bird0_0.png"
+            },
+            {
+                name: "bird0_1",
+                url: "./img/bird0_1.png"
+            },
+            {
+                name: "bird0_2",
+                url: "./img/bird0_2.png"
+            },
+            {
+                name: "button_play",
+                url: "./img/button_play.png"
+            },
+            {
+                name: "font_048",
+                url: "./img/font_048.png"
+            },
+            {
+                name: "font_049",
+                url: "./img/font_049.png"
+            },
+            {
+                name: "font_050",
+                url: "./img/font_050.png"
+            },
+            {
+                name: "font_051",
+                url: "./img/font_051.png"
+            },
+            {
+                name: "font_052",
+                url: "./img/font_052.png"
+            },
+            {
+                name: "font_053",
+                url: "./img/font_053.png"
+            },
+            {
+                name: "font_054",
+                url: "./img/font_054.png"
+            },
+            {
+                name: "font_055",
+                url: "./img/font_055.png"
+            },
+            {
+                name: "font_056",
+                url: "./img/font_056.png"
+            },
+            {
+                name: "font_057",
+                url: "./img/font_057.png"
+            },
+            {
+                name: "land",
+                url: "./img/land.png"
+            },
+            {
+                name: "pipe_down",
+                url: "./img/pipe_down.png"
+            },
+            {
+                name: "pipe_up",
+                url: "./img/pipe_up.png"
+            },
+            {
+                name: "text_game_over",
+                url: "./img/text_game_over.png"
+            },
+            {
+                name: "title",
+                url: "./img/title.png"
+            },
+            {
+                name: "tutorial",
+                url: "./img/tutorial.png"
+            },
+        ]
+        let imgArrLen = imgArr.length
+        let imgobj = {};
+        for (let index = 0; index < imgArrLen; index++) {
+            imgobj[imgArr[index].name] = new Image();
+            imgobj[imgArr[index].name].src = imgArr[index].url
+            imgobj[imgArr[index].name].onload = function () {
+                imgArrLen--;
+                if (imgArrLen == 0) {
+                    flyGame(imgobj)
+                }
+            }
+        }
+    })();
+</script>
+
+</html>
