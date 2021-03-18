@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义控制面板和歌词跟随</title>
+    <script src="http://webxrj.top:3000/js/jQuery.js"></script>
+    <script src="./data.js"></script>
+    <style>
+        ::-webkit-scrollbar {
+            /*滚动条整体样式*/
+            width: 10px;
+            /*高宽分别对应横竖滚动条的尺寸*/
+            height: 1px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            /*滚动条里面小方块*/
+            border-radius: 10px;
+            background: #535353;
+        }
+
+        ::-webkit-scrollbar-track {
+            /*滚动条里面轨道*/
+            border-radius: 10px;
+            background: #EDEDED;
+        }
+
+        .body {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+            /* border: 1px solid; */
+        }
+
+        ul li {
+            list-style: none;
+            cursor: pointer;
+            width: 200px;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .active {
+            background-color: red;
+        }
+
+        .lyricActive {
+            color: springgreen;
+            transform: scale(1.5);
+        }
+
+        .selfCon {
+            width: 800px;
+            margin: 0 auto;
+            /* border: 1px solid; */
+        }
+
+        .tatolTime,
+        .currentTime {
+            display: inline-block;
+            width: 35px;
+            text-align: center;
+        }
+
+        .lyric {
+            width: 600px;
+            margin: 10px auto;
+            height: 300px;
+            border: 1px solid;
+            text-align: center;
+            overflow-y: scroll;
+        }
+
+        li {
+            list-style: none;
+        }
+        .muted{
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <h3>播放列表</h3>
+        <span>总共<span class="len"></span>首</span>
+        <ul class="musicList" onselectstart="return false;">
+        </ul>
+        <audio src="" controls></audio>
+    </div>
+    <div class="selfCon">
+        <button class="preSong">上一首</button>
+        <button class="paused">播放</button>
+        <button class="nextSong">下一首</button>
+        <span class="currentTime">0:00</span>
+        <input class="getVal" type="range" min="0" max='200'  style="width: 200px;" value="0" />
+        <span class="tatolTime">3:00</span>
+        <button class="closeV">静音</button>
+        <input class="getVoice" type="range" min="0" max="1" step="0.05" value="0.5">
+        <button class="playRules">规则A</button>
+    </div>
+    <div class="lyric">
+        <li>想起了抄歌词的那个年代</li>
+        <li class="lyricActive">听的也想哭，老了，你们还好吗？</li>
+        <li>想起了抄歌词的那个年代</li>
+    </div>
+
+</body>
+<script>
+    //即将播放歌曲的id
+    let currentIndex = 0
+
+    //获取audio对象
+    let audio = $('audio');
+
+    //获取歌曲数量
+    let len = musicData.length
+    $('.len').text(` ${len} `);
+
+    //曲目列表生成
+    let musicList = ''
+    $(musicData).each((item) => {
+        musicList += `<li id=${item}> ${$(musicData)[item].song}  ${$(musicData)[item].singer}</li>`
+    })
+    $('.musicList').html(musicList);
+
+    // ************************************************************
+
+    //时间转换处理函数
+    function exTime(time) {
+        return [parseInt(time / 60), parseInt(time % 60)]
+    }
+    //声明获取歌词函数
+    function getLrc(lrcsArr, songName) {
+        for (const iterator of lrcsArr) {
+            if (iterator["song"] == songName) {
+                return iterator["lyric"]
+            }
+        }
+    }
+
+
+    //声明渲染歌词函数
+    function showLrc(lyric) {
+        let lyricList = ''
+        lyric.forEach(item => {
+            lyricList += `<li>${item.lineLyric}</li>`;
+        });
+        $('.lyric').html(lyricList)
+    }
+
+    //声明播放上一曲函数
+    function preSong(params) {
+        currentIndex--;
+        if (currentIndex < 0) {
+            currentIndex = len - 1
+        }
+        whichActive(currentIndex)
+    }
+
+    //声明播放下一曲函数
+    function nextSong(params) {
+        currentIndex++;
+        if (currentIndex > len - 1) {
+            currentIndex = 0
+        }
+        whichActive(currentIndex)
+    }
+
+
+    //声明暂停/播放转换函数
+    function playOrPaused(params) {
+        if ($('audio').get(0).paused) {
+            audio.get(0).play();
+            $('.paused').text('暂停')
+
+        } else {
+            audio.get(0).pause()
+            $('.paused').text('播放')
+        }
+    }
+
+    //静音按钮监听
+    $('.closeV').click(function () {
+        if (audio.get(0).muted) {
+            audio.get(0).muted=false;
+            $('.closeV').text('音量');
+            $('.getVoice').val(audio.get(0).volume)
+        }else{
+            audio.get(0).muted=true
+            $('.closeV').text('静音');
+            $('.getVoice').val(0)
+        }
+        
+    })
+
+    //滑块控制音量
+    $('.getVoice').on('input',function () {
+        audio.get(0).volume=$('.getVoice').val();
+        if (audio.get(0).volume>0) {
+            audio.get(0).muted=false;
+        }
+    })
+
+    //音量监听
+    audio.on('volumechange',function(){
+        if (audio.get(0).muted||audio.get(0).volume==0) {
+            $('.closeV').text('静音')
+        }else{
+            $('.closeV').text('音量')
+        }
+    })
+
+    //播放完成监听
+    audio.on('ended',function(){
+        switch (0) {
+            case 0:
+            nextSong();
+                break;
+        
+            default:
+                break;
+        }
+    })
+  
+    //0列表循环
+    // nextSong()
+    //1单曲循环
+    //2顺序播放
+    //3随机播放
+
+    //声明目标歌曲相关内容生成函数
+    function whichActive(id) {
+        //给当前正在播放的歌曲名称列添加样式
+        console.log(id);
+        $('ul li').removeClass('active')
+        $(`#${id}`).addClass('active');
+
+        //给audio标签换上匹配id的歌曲地址
+        audio.attr('src', musicData[id].url);
+
+      
+
+        //音量控制
+        audio.get(0).volume=$('.getVoice').val();
+
+        //获取并展示歌词
+        showLrc(getLrc(lrcs, $(musicData)[id].lyric))
+
+        if (audio.get(0).muted) {
+            $('.closeV').text('静音')
+        } else {
+            $('.closeV').text('音量')
+        }
+
+    }
+
+      //歌曲能够播放时触发函数
+      audio.get(0).oncanplaythrough = canPlay;
+    //***************
+    //声明能够播放时函数
+    function canPlay() {
+        //播放
+        audio.get(0).play()
+
+        //获取总时长，并处理
+        var d = $('audio').get(0).duration;
+        var exD = exTime(d);
+        $('.getVal').attr('max',d);
+        // 渲染
+        $('.tatolTime').text(exD[0] + ":" + (exD[1] > 9 ? exD[1] : '0' + exD[1]));
+
+        
+        //监听滑块滑动
+        $('.getVal').on('input', function () {
+            //获取并处理滑动条数据
+            var val = $('.getVal').val();
+            let exVal = exTime(val)
+            //渲染滑动之后的时间
+            $('.currentTime').text(exVal[0] + ":" + (exVal[1] > 9 ? exVal[1] : '0' + exVal[1]))
+
+            //改变歌曲播放时间
+            audio.get(0).currentTime = val 
+        })
+
+        //根据条件渲染$('.paused')的内容
+        if (audio.get(0).paused) {
+            $('.paused').text('播放')
+        } else {
+            $('.paused').text('暂停')
+        }
+
+    }
+
+    //监听歌曲时间变化
+    audio.get(0).ontimeupdate = () => {
+            //获取当前播放时间
+            let c = audio.get(0).currentTime;
+            // =>歌词变化              
+
+            //渲染滑动条
+            $('.getVal').val(c)
+
+            //时间格式处理
+            let exC = exTime(c)
+            //渲染当前播放时间
+            $('.currentTime').text(exC[0] + ":" + (exC[1] > 9 ? exC[1] : '0' + exC[1]))
+        }
+
+    //***************
+    //点击修改即将歌曲的id为当前列的id
+    $('.musicList li').click(function (e) {
+        currentIndex = e.target.id
+        whichActive(currentIndex);
+    })
+
+    //给上一曲按钮绑定点击事件
+    $('.preSong').click(preSong)
+
+    //给按钮绑定点击事件播放下一曲
+    $('.nextSong').click(nextSong)
+
+    //绑定暂停/播放函数
+    $('.paused').click(playOrPaused)
+
+    //执行目标歌曲相关内容生成函数
+    whichActive(currentIndex);
+</script>
+
+</html>

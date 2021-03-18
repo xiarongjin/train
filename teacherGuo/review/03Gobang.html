@@ -32,7 +32,7 @@
     function drawBoard(n) {
         canvas.addEventListener('click', showPiece)
         n=n*1;
-        historyStep = new Array(n).fill(new Array(n).fill(null))
+        historyStep = new Array(n).fill(new Array(n).fill(null));
         canvas.setAttribute('width', 40 * (n * 1 + 1) + 'px')
         canvas.setAttribute('height', 40 * (n * 1 + 1) + 'px')
         boardBox.style.height = boardBox.style.width = 40 * (n * 1 + 1) + 'px';

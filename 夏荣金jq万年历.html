@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日历-纯js实现</title>
+    <script src="http://webxrj.top:3000/js/jQuery.js"></script>
+    <style>
+        .fl {
+            float: left;
+        }
+
+        .box {
+            width: 400px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .head {
+            width: 400px;
+            overflow: hidden;
+            height: 30px;
+            line-height: 30px;
+            margin: 10px auto;
+        }
+
+        .head-left-group,
+        .head-right-group {
+            width: 100px;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-align: center;
+        }
+
+        .center-title {
+            width: 120px;
+            text-align: center;
+        }
+
+        .head-right-group {
+            text-align: right;
+        }
+
+        .arrow {
+            display: inline-block;
+            width: 40px;
+            text-align: center;
+            background-color: skyblue;
+            cursor: pointer;
+        }
+
+        .dobarrow {
+            width: 40px;
+            text-align: center;
+            display: inline-block;
+            cursor: pointer;
+            background-color: steelblue;
+        }
+
+        .hr {
+            width: 400px;
+            height: 2px;
+            background: silver;
+            margin-bottom:10px ;
+        }
+
+        .body {
+            width: 400px;
+        }
+
+        tr th {
+            width: 50px;
+        }
+
+        table {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .unthisData {
+            background-color: silver;
+        }
+    </style>
+</head>
+
+<body >
+    <div class="box">
+        <div class="head">
+            <div class="head-left-group fl"  onselectstart="return false;">
+
+                <span class="dobarrow">
+                    << </span> <span class="arrow">
+                        < </span> </div> <div class="center-title fl">
+                            <span><span class="year_data" style="padding-right: 10px;">2021</span>年</span> <span><span
+                                    class="month_data" style="padding-right: 10px;">1</span>月</span>
+            </div>
+            <div class="head-right-group fl"  onselectstart="return false;">
+                <span class="arrow">></span>
+                <span class="dobarrow">>></span>
+            </div>
+        </div>
+        <div class="hr"></div>
+        <div class="body">
+
+        </div>
+    </div>
+</body>
+<script>
+
+    // 获取现在的年月
+    let {
+        year,
+        mounth
+    } = getNow();
+
+
+    //获取现在数组：[年月对应的天数，第一天对应的星期，上一个月的天数]
+    let nowMounth = getThisDay({
+        year,
+        mounth
+    });
+
+
+    $(".year_data").html(year)
+
+    showBodydata(nowMounth);
+
+
+    //点击按钮触发事件
+    //上一个月
+    $('.head-left-group .arrow').click(function (params) {
+        event.preventDefault()
+        mounth--;
+        if (mounth < 0) {
+            mounth = 11;
+            year--;
+        }
+        $(".year_data").html(year)
+        $(".month_data").html(mounth + 1)
+        nowMounth = getThisDay({
+            year,
+            mounth
+        });
+        showBodydata(nowMounth);
+    })
+    //上一年
+    $('.head-left-group .dobarrow').click(function (params) {
+        event.preventDefault()
+        year--;
+        $(".year_data").html(year)
+        nowMounth = getThisDay({
+            year,
+            mounth
+        });
+        showBodydata(nowMounth);
+    })
+    //下个月
+    $('.head-right-group .arrow').click(function (params) {
+        event.preventDefault()
+        mounth++;
+        if (mounth > 11) {
+            mounth = 0;
+            year++;
+        }
+        $(".year_data").html(year)
+        $(".month_data").html(mounth + 1)
+        nowMounth = getThisDay({
+            year,
+            mounth
+        });
+        showBodydata(nowMounth);
+    })
+    //下一年
+    $('.head-right-group .dobarrow').click(function (params) {
+        event.preventDefault()
+        year++;
+        $(".year_data").html(year)
+        nowMounth = getThisDay({
+            year,
+            mounth
+        });
+        showBodydata(nowMounth);
+    })
+
+    function getNow() {
+        let date = new Date()
+        let obj = {
+            year: date.getFullYear(),
+            mounth: date.getMonth()
+        }
+        return obj
+    }
+
+    function getThisDay(dataArr) {
+        let days = new Date(dataArr.year, dataArr.mounth + 1, 0).getDate();
+        let lastDays = new Date(dataArr.year, dataArr.mounth , 0).getDate();
+        let firstDay = new Date(dataArr.year, dataArr.mounth, 1).getDay();
+        return [days, firstDay,lastDays]
+    }
+
+    function getbody_data(arr) {
+        let col = Math.ceil((arr[1] + arr[0]) / 7)
+        let body_data = '';
+        for (let i = 0; i < col; i++) {
+            body_data += `<tr>`
+            for (let j = 0; j < 7; j++) {
+                if (i == 0 && j < arr[1] || i * 7 + j + 1 - arr[1] > arr[0]) {
+                    if (i * 7 + j + 1 - arr[1] > arr[0]) {
+                        body_data += `<td class='unthisData'>${i*7+j+1-arr[1]-arr[0]}</td>`
+                    } else {
+                        body_data += `<td class='unthisData'>${i*7+j+1-arr[1]+arr[2]}</td>`
+                    }
+
+                } else {
+                    body_data += `<td>${i*7+j+1-arr[1]}</td>`
+                }
+            }
+
+            body_data += `</tr>`
+        }
+        return body_data;
+    }
+
+    function showBodydata(arr) {
+        let body_data = `<tr>
+                    <td class="unthisData">27</td>
+                    <td class="unthisData">28</td>
+                    <td class="unthisData">29</td>
+                    <td class="unthisData">30</td>
+                    <td class="unthisData">31</td>
+                    <td>1</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>`;
+        body_data = getbody_data(arr)
+        let table = `<table border="1" class="body_Data"> 
+                        <tr>
+                            <th style="color: red;">日</th>
+                            <th>一</th>
+                            <th>二</th>
+                            <th>三</th>
+                            <th>四</th>
+                            <th>五</th>
+                            <th>六</th>
+                        </tr>
+                        ${body_data}
+                    </table>`
+        $('.body').html(table)
+    }
+</script>
+
+</html>
